@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Patient() {
+export default function SingUp() {
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -66,8 +66,12 @@ export default function Patient() {
                 <a href="file.html" className="nav-item nav-link">
                   New file
                 </a>
-                {/* <a href="#" className="nav-item nav-link">Audio Call</a>
-                        <a href="#" className="nav-item nav-link">Vidoe Call</a> */}
+                <a href="#" className="nav-item nav-link">
+                  Audio Call
+                </a>
+                <a href="#" className="nav-item nav-link">
+                  Vidoe Call
+                </a>
               </div>
             </div>
           </nav>
@@ -79,35 +83,106 @@ export default function Patient() {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="mb-4">
                 <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">
-                  Patient Login
+                  Appointment
                 </h5>
+                <h1 className="display-4">Open a New file For Your Family</h1>
               </div>
               <p className="mb-5">
-                Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd
-                ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo
-                rebum sea invidunt voluptua. Eos vero eos vero ea et dolore
-                eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores
-                magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus
-                sed.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam vero culpa harum autem iusto atque cumque soluta nulla
+                accusamus. Soluta consequatur corrupti perferendis pariatur,
+                numquam corporis magni sequi repudiandae quo maiores eos
+                tempore. A quis rem cumque voluptate fugit tempore cum nemo,
+                enim, harum delectus soluta exercitationem asperiores voluptatem
+                repellat? Atque ratione dolor dicta quae officia assumenda
+                tenetur temporibus at quidem, fugiat ducimus corrupti vitae sunt
+                et non, libero ipsam quasi consequuntur animi facilis neque!
+                Voluptatem mollitia perspiciatis dolores! Explicabo, in natus
+                voluptatibus doloribus quisquam hic accusamus! Qui consequuntur
+                corporis temporibus sed! Culpa soluta aut, modi porro molestiae
+                recusandae rerum.
               </p>
+              <a
+                className="btn btn-primary rounded-pill py-3 px-5 me-3"
+                href=""
+              >
+                Find Doctor
+              </a>
             </div>
             <div className="col-lg-6">
               <div className="bg-light text-center rounded p-5">
-                <h1 className="mb-4">login details</h1>
+                <h1 className="mb-4">Open a New File</h1>
                 <form>
                   <div className="row g-3">
                     <div className="col-12 col-sm-6">
+                      <input
+                        type="text"
+                        className="form-control bg-white border-0"
+                        placeholder="Frist Name"
+                        required
+                        style={{ height: "55px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <input
+                        type="email"
+                        className="form-control bg-white border-0"
+                        placeholder="Middle Name"
+                        style={{ height: "55px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <input
+                        type="text"
+                        className="form-control bg-white border-0"
+                        placeholder="Last Name"
+                        required
+                        style={{ height: "55px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <input
+                        type="email"
+                        className="form-control bg-white border-0"
+                        placeholder="Your Email"
+                        required
+                        style={{ height: "55px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <select
+                        className="form-select bg-white border-0"
+                        style={{ height: "55px" }}
+                      >
+                        <option selected>Choose State</option>
+                        <option value="1">Abuja</option>
+                        <option value="2">Kano</option>
+                        <option value="3">Gombe</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <select
+                        className="form-select bg-white border-0"
+                        style={{ height: "55px" }}
+                      >
+                        <option selected>Gender</option>
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-sm-6">
                       <div
                         className="date"
-                        id="gmail"
+                        id="date"
                         data-target-input="nearest"
                       >
                         <input
-                          type="text"
+                          type="number"
                           className="form-control bg-white border-0 datetimepicker-input"
-                          placeholder="username"
-                          data-target="#username"
+                          placeholder="Date Of Birth"
+                          data-target="#date"
                           data-toggle="datetimepicker"
+                          required
                           style={{ height: "55px" }}
                         />
                       </div>
@@ -115,15 +190,16 @@ export default function Patient() {
                     <div className="col-12 col-sm-6">
                       <div
                         className="time"
-                        id="password"
+                        id="time"
                         data-target-input="nearest"
                       >
                         <input
-                          type="password"
+                          type="number"
                           className="form-control bg-white border-0 datetimepicker-input"
-                          placeholder="password"
-                          data-target="#password"
+                          placeholder="Phone No"
+                          data-target="#time"
                           data-toggle="datetimepicker"
+                          required
                           style={{ height: "55px" }}
                         />
                       </div>
@@ -133,7 +209,7 @@ export default function Patient() {
                         className="btn btn-primary w-100 py-3"
                         type="submit"
                       >
-                        login
+                        Submit
                       </button>
                     </div>
                   </div>
@@ -155,15 +231,15 @@ export default function Patient() {
                 et et dolor sed dolor
               </p>
               <p className="mb-2">
-                <i className="fa fa-map-marker-alt text-primary me-3"></i>
-                IBRAHIM TAYO ROAD
+                <i className="fa fa-map-marker-alt text-primary me-3"></i>123
+                Street, New York, USA
               </p>
               <p className="mb-2">
                 <i className="fa fa-envelope text-primary me-3"></i>
-                KSPhealthcare.com
+                info@example.com
               </p>
               <p className="mb-0">
-                <i className="fa fa-phone-alt text-primary me-3"></i>+234802 345
+                <i className="fa fa-phone-alt text-primary me-3"></i>+012 345
                 67890
               </p>
             </div>
@@ -231,6 +307,15 @@ export default function Patient() {
                   <button className="btn btn-primary">Sign Up</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div className="container">
+          <div className="row g-5">
+            <div className="col-md-6 text-center text-md-start">
+              <p className="mb-md-0">&copy; All Rights Reserved.</p>
             </div>
           </div>
         </div>

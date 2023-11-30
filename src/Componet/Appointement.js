@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Patient() {
+export default function Appointement() {
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -60,14 +60,24 @@ export default function Patient() {
                 <a href="index.html" className="nav-item nav-link">
                   Home
                 </a>
-                <a href="card.html" className="nav-item nav-link">
-                  Card
+                <a href="admin.html" className="nav-item nav-link">
+                  Admin
                 </a>
-                <a href="file.html" className="nav-item nav-link">
-                  New file
+                <a href="./doctor.html" className="nav-item nav-link">
+                  Doctor
                 </a>
-                {/* <a href="#" className="nav-item nav-link">Audio Call</a>
-                        <a href="#" className="nav-item nav-link">Vidoe Call</a> */}
+                <a href="recepition.html" className="nav-item nav-link">
+                  Recepition
+                </a>
+                <a href="contact.html" className="nav-item nav-link">
+                  Contact
+                </a>
+                <a href="about.html" className="nav-item nav-link">
+                  About
+                </a>
+                <a href="service.html" className="nav-item nav-link">
+                  Service
+                </a>
               </div>
             </div>
           </nav>
@@ -79,8 +89,11 @@ export default function Patient() {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="mb-4">
                 <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">
-                  Patient Login
+                  Appointment
                 </h5>
+                <h1 className="display-4">
+                  Make An Appointment For Your Family
+                </h1>
               </div>
               <p className="mb-5">
                 Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd
@@ -90,23 +103,67 @@ export default function Patient() {
                 magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus
                 sed.
               </p>
+              <a
+                className="btn btn-primary rounded-pill py-3 px-5 me-3"
+                href=""
+              >
+                Find Doctor
+              </a>
             </div>
             <div className="col-lg-6">
               <div className="bg-light text-center rounded p-5">
-                <h1 className="mb-4">login details</h1>
+                <h1 className="mb-4">Book An Appointment</h1>
                 <form>
                   <div className="row g-3">
                     <div className="col-12 col-sm-6">
+                      <select
+                        className="form-select bg-white border-0"
+                        style={{ height: "55px" }}
+                      >
+                        <option selected>Choose Department</option>
+                        <option value="1">Department 1</option>
+                        <option value="2">Department 2</option>
+                        <option value="3">Department 3</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <select
+                        className="form-select bg-white border-0"
+                        style={{ height: "55px" }}
+                      >
+                        <option selected>Medical</option>
+                        <option value="1">Medical</option>
+                        <option value="2">Dental</option>
+                        <option value="3">Skin DOC</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <input
+                        type="text"
+                        className="form-control bg-white border-0"
+                        placeholder="Your Name"
+                        style={{ height: "55px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6">
+                      <input
+                        type="email"
+                        className="form-control bg-white border-0"
+                        placeholder="Your Email"
+                        style={{ height: "55px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6">
                       <div
                         className="date"
-                        id="gmail"
+                        id="date"
                         data-target-input="nearest"
                       >
                         <input
                           type="text"
                           className="form-control bg-white border-0 datetimepicker-input"
-                          placeholder="username"
-                          data-target="#username"
+                          placeholder="Date"
+                          data-target="#date"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
                         />
@@ -115,14 +172,14 @@ export default function Patient() {
                     <div className="col-12 col-sm-6">
                       <div
                         className="time"
-                        id="password"
+                        id="time"
                         data-target-input="nearest"
                       >
                         <input
-                          type="password"
+                          type="text"
                           className="form-control bg-white border-0 datetimepicker-input"
-                          placeholder="password"
-                          data-target="#password"
+                          placeholder="Time"
+                          data-target="#time"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
                         />
@@ -133,7 +190,7 @@ export default function Patient() {
                         className="btn btn-primary w-100 py-3"
                         type="submit"
                       >
-                        login
+                        Make An Appointment
                       </button>
                     </div>
                   </div>
@@ -155,15 +212,15 @@ export default function Patient() {
                 et et dolor sed dolor
               </p>
               <p className="mb-2">
-                <i className="fa fa-map-marker-alt text-primary me-3"></i>
-                IBRAHIM TAYO ROAD
+                <i className="fa fa-map-marker-alt text-primary me-3"></i>123
+                Street, New York, USA
               </p>
               <p className="mb-2">
                 <i className="fa fa-envelope text-primary me-3"></i>
-                KSPhealthcare.com
+                info@example.com
               </p>
               <p className="mb-0">
-                <i className="fa fa-phone-alt text-primary me-3"></i>+234802 345
+                <i className="fa fa-phone-alt text-primary me-3"></i>+012 345
                 67890
               </p>
             </div>
@@ -231,6 +288,15 @@ export default function Patient() {
                   <button className="btn btn-primary">Sign Up</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div className="container">
+          <div className="row g-5">
+            <div className="col-md-6 text-center text-md-start">
+              <p className="mb-md-0">&copy; All Rights Reserved.</p>
             </div>
           </div>
         </div>

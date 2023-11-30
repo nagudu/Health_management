@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Patient() {
+export default function Doctor() {
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -60,14 +60,24 @@ export default function Patient() {
                 <a href="index.html" className="nav-item nav-link">
                   Home
                 </a>
-                <a href="card.html" className="nav-item nav-link">
-                  Card
+                <a href="admin.html" className="nav-item nav-link">
+                  Admin
                 </a>
-                <a href="file.html" className="nav-item nav-link">
-                  New file
+                <a href="./doctor.html" className="nav-item nav-link">
+                  Doctor
                 </a>
-                {/* <a href="#" className="nav-item nav-link">Audio Call</a>
-                        <a href="#" className="nav-item nav-link">Vidoe Call</a> */}
+                <a href="recepition.html" className="nav-item nav-link">
+                  Recepition
+                </a>
+                <a href="contact.html" className="nav-item nav-link">
+                  Contact
+                </a>
+                <a href="about.html" className="nav-item nav-link">
+                  About
+                </a>
+                <a href="service.html" className="nav-item nav-link">
+                  Service
+                </a>
               </div>
             </div>
           </nav>
@@ -79,7 +89,7 @@ export default function Patient() {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="mb-4">
                 <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">
-                  Patient Login
+                  Doctor
                 </h5>
               </div>
               <p className="mb-5">
@@ -90,6 +100,12 @@ export default function Patient() {
                 magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus
                 sed.
               </p>
+              <a
+                className="btn btn-primary rounded-pill py-3 px-5 me-3"
+                href=""
+              >
+                Find Doctor
+              </a>
             </div>
             <div className="col-lg-6">
               <div className="bg-light text-center rounded p-5">
@@ -105,8 +121,8 @@ export default function Patient() {
                         <input
                           type="text"
                           className="form-control bg-white border-0 datetimepicker-input"
-                          placeholder="username"
-                          data-target="#username"
+                          placeholder="Gmail address"
+                          data-target="#gmail"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
                         />
