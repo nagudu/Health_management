@@ -1,5 +1,22 @@
 import React from 'react'
 
+import "https://fonts.gstatic.com"
+import "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+import  "lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+import "css/bootstrap.min.css" 
+import "css/style.css"     
+import "https://code.jquery.com/jquery-3.4.1.min.js"
+import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+import "lib/easing/easing.min.js"
+import "lib/waypoints/waypoints.min.js"
+import "lib/owlcarousel/owl.carousel.min.js"
+import "lib/tempusdominus/js/moment.min.js"
+import "lib/tempusdominus/js/moment-timezone.min.js"
+import "lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"
+import "js/main.js"
 
 export default function Home(){
 
