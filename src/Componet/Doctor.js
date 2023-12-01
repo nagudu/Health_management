@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Doctor() {
+export default function() {
     const navigate = useNavigate()
   return (
     <div>
@@ -10,30 +10,30 @@ export default function Doctor() {
           <div className="row">
             <div className="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
               <div className="d-inline-flex align-items-center">
-                <span onClick={() => navigate("/doctor")} className="text-decoration-none text-body pe-3" href="">
+                <span onClick={() => navigate("")} className="text-decoration-none text-body pe-3" href="">
                   <i className="bi bi-telephone me-2"></i>+234812 345 6789
                 </span>
                 <span className="text-body">|</span>
-                <span onClick={() => navigate("/doctor")} className="text-decoration-none text-body px-3" href="">
+                <span onClick={() => navigate("")} className="text-decoration-none text-body px-3" href="">
                   <i className="bi bi-envelope me-2"></i>KSPhealthcare.com
                 </span>
               </div>
             </div>
             <div className="col-md-6 text-center text-lg-end">
               <div className="d-inline-flex align-items-center">
-                <span onClick={() => navigate("/doctor")} className="text-body px-2" href="">
+                <span onClick={() => navigate("")} className="text-body px-2" href="">
                   <i className="fab fa-facebook-f"></i>
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-body px-2" href="">
+                <span onClick={() => navigate("")} className="text-body px-2" href="">
                   <i className="fab fa-twitter"></i>
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-body px-2" href="">
+                <span onClick={() => navigate("")} className="text-body px-2" href="">
                   <i className="fab fa-linkedin-in"></i>
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-body px-2" href="">
+                <span onClick={() => navigate("")} className="text-body px-2" href="">
                   <i className="fab fa-instagram"></i>
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-body ps-2" href="">
+                <span onClick={() => navigate("")} className="text-body ps-2" href="">
                   <i className="fab fa-youtube"></i>
                 </span>
               </div>
@@ -44,7 +44,7 @@ export default function Doctor() {
       <div className="container-fluid sticky-top bg-white shadow-sm mb-5">
         <div className="container">
           <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-            <span onClick={() => navigate("/doctor")} href="index.html" className="navbar-brand">
+            <span onClick={() => navigate("/")}  className="navbar-brand">
               <h1 className="m-0 text-uppercase text-primary">
                 <i className="fa fa-clinic-medical me-2"></i>HOSPITAL CARE
               </h1>
@@ -59,25 +59,25 @@ export default function Doctor() {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ms-auto py-0">
-                <span onClick={() => navigate("/doctor")} href="index.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/")}  className="nav-item nav-link">
                   Home
                 </span>
-                <span onClick={() => navigate("/doctor")} href="admin.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/admin")}  className="nav-item nav-link">
                   Admin
                 </span>
-                <span onClick={() => navigate("/doctor")} href="./doctor.html" className="nav-item nav-link">
-                  Doctor
+                <span onClick={() => navigate("/doctor")} className="nav-item nav-link">
+                Doctor
                 </span>
-                <span onClick={() => navigate("/doctor")} href="recepition.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/reception")}  className="nav-item nav-link">
                   Recepition
                 </span>
-                <span onClick={() => navigate("/doctor")} href="contact.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/contact")}  className="nav-item nav-link">
                   Contact
                 </span>
-                <span onClick={() => navigate("/doctor")} href="about.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/about")}  className="nav-item nav-link">
                   About
                 </span>
-                <span onClick={() => navigate("/doctor")} href="service.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/service")}  className="nav-item nav-link">
                   Service
                 </span>
               </div>
@@ -91,7 +91,7 @@ export default function Doctor() {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="mb-4">
                 <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">
-                  Doctor
+                
                 </h5>
               </div>
               <p className="mb-5">
@@ -102,11 +102,11 @@ export default function Doctor() {
                 magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus
                 sed.
               </p>
-              <span onClick={() => navigate("/doctor")}
+              <span onClick={() => navigate("")}
                 className="btn btn-primary rounded-pill py-3 px-5 me-3"
                 href=""
               >
-                Find Doctor
+                Find
               </span>
             </div>
             <div className="col-lg-6">
@@ -190,22 +190,22 @@ export default function Doctor() {
                 Quick Links
               </h4>
               <div className="d-flex flex-column justify-content-start">
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Home
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>About Us
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Our Services
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Meet The Team
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Latest Blog
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light" href="#">
+                <span onClick={() => navigate("")} className="text-light" href="#">
                   <i className="fa fa-angle-right me-2"></i>Contact Us
                 </span>
               </div>
@@ -215,22 +215,22 @@ export default function Doctor() {
                 Popular Links
               </h4>
               <div className="d-flex flex-column justify-content-start">
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Home
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>About Us
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Our Services
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Meet The Team
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light mb-2" href="#">
+                <span onClick={() => navigate("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Latest Blog
                 </span>
-                <span onClick={() => navigate("/doctor")} className="text-light" href="#">
+                <span onClick={() => navigate("")} className="text-light" href="#">
                   <i className="fa fa-angle-right me-2"></i>Contact Us
                 </span>
               </div>
@@ -253,7 +253,7 @@ export default function Doctor() {
           </div>
         </div>
       </div>
-      <span onClick={() => navigate("/doctor")} href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top">
+      <span onClick={() => navigate("")} href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top">
         <i className="bi bi-arrow-up"></i>
       </span>
     </div>
