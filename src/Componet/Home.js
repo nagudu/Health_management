@@ -125,7 +125,7 @@ export default function Home() {
                 >
                   Appointment
                 </span>
-                <span onClick={() => ("")}
+                <span onClick={() =>navigate ("/patient")}
                   href="patient.html"
                   className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2 "
                 >
