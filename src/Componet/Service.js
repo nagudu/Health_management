@@ -48,13 +48,13 @@ export default function Service() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0">
-                        <span onClick={() => navigate("/")} href="index.html" className="nav-item nav-link">Home</span>
-                        <span onClick={() => navigate("/")} href="admin.html" className="nav-item nav-link">Admin</span>
-                        <span onClick={() => navigate("/")} href="./doctor.html" className="nav-item nav-link">Doctor</span>
-                        <span onClick={() => navigate("/")} href="recepition.html" className="nav-item nav-link">Recepition</span>
-                        <span onClick={() => navigate("/")} href="contact.html" className="nav-item nav-link">Contact</span>
-                        <span onClick={() => navigate("/")} href="about.html" className="nav-item nav-link">About</span>
-                        <span onClick={() => navigate("/")} href="service.html" className="nav-item nav-link">Service</span>
+                        <span onClick={() => navigate("/")} className="nav-item nav-link">Home</span>
+                        <span onClick={() => navigate("/admin")}  className="nav-item nav-link">Admin</span>
+                        <span onClick={() => navigate("/doctor")} className="nav-item nav-link">Doctor</span>
+                        <span onClick={() => navigate("/reception")}  className="nav-item nav-link">Recepition</span>
+                        <span onClick={() => navigate("/contact")}  className="nav-item nav-link">Contact</span>
+                        <span onClick={() => navigate("/about")}  className="nav-item nav-link">About</span>
+                        <span onClick={() => navigate("/service")}  className="nav-item nav-link">Service</span>
                     </div>
                 </div>
             </nav>

@@ -119,8 +119,8 @@ export default function Home() {
                 Best Healthcare Solution In Your City
               </h1>
               <div className="pt-2">
-                <span onClick={() => ("")}
-                  href="appointment.html"
+                <span onClick={() =>navigate ("/appointement")}
+                 
                   className="btn btn-light rounded-pill py-md-3 px-md-5 mx-2"
                 >
                   Appointment
