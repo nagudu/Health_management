@@ -8,6 +8,7 @@ import React from "react";
 // import  "./lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
 import "./css/bootstrap.min.css";
 import "./css/style.css";
+import { useNavigate } from "react-router-dom";
 // import "https://code.jquery.com/jquery-3.4.1.min.js"
 // import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
 // import "./lib/easing/easing.min.js"
@@ -19,6 +20,7 @@ import "./css/style.css";
 // import "./js/main.js"
 
 export default function Home() {
+    const navigate = useNavigate()
   return (
     <>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -26,32 +28,32 @@ export default function Home() {
           <div className="row">
             <div className="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
               <div className="d-inline-flex align-items-center">
-                <a className="text-decoration-none text-body pe-3">
+                <span onClick={() => ("")} className="text-decoration-none text-body pe-3">
                   <i className="bi bi-telephone me-2"></i>+0234 812 345 6789
-                </a>
+                </span>
                 <span className="text-body">|</span>
-                <a className="text-decoration-none text-body px-3">
+                <span onClick={() => ("")} className="text-decoration-none text-body px-3">
                   <i className="bi bi-envelope me-2"></i>KSPhealthcare.com
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-md-6 text-center text-lg-end">
               <div className="d-inline-flex align-items-center">
-                <a className="text-body px-2">
+                <span onClick={() => ("")} className="text-body px-2">
                   <i className="fab fa-facebook-f"></i>
-                </a>
-                <a className="text-body px-2">
+                </span>
+                <span onClick={() => ("")} className="text-body px-2">
                   <i className="fab fa-twitter"></i>
-                </a>
-                <a className="text-body px-2">
+                </span>
+                <span onClick={() => ("")} className="text-body px-2">
                   <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a className="text-body px-2">
+                </span>
+                <span onClick={() => ("")} className="text-body px-2">
                   <i className="fab fa-instagram"></i>
-                </a>
-                <a className="text-body ps-2">
+                </span>
+                <span onClick={() => ("")} className="text-body ps-2">
                   <i className="fab fa-youtube"></i>
-                </a>
+                </span>
               </div>
             </div>
           </div>
@@ -61,11 +63,11 @@ export default function Home() {
       <div className="container-fluid sticky-top bg-white shadow-sm">
         <div className="container">
           <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-            <a href="index.html" className="navbar-brand">
+            <span onClick={() => ("")} href="index.html" className="navbar-brand">
               <h1 className="m-0 text-uppercase text-primary">
                 <i className="fa fa-clinic-medical me-2"></i>HOSPITAL CARE
               </h1>
-            </a>
+            </span>
             <button
               className="navbar-toggler"
               type="button"
@@ -76,27 +78,27 @@ export default function Home() {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ms-auto py-0">
-                <a href="index.html" className="nav-item nav-link">
+                <span onClick={() => navigate('/')} href="index.html" className="nav-item nav-link">
                   Home
-                </a>
-                <a href="admin.html" className="nav-item nav-link">
+                </span>
+                <span onClick={() => ("")} href="admin.html" className="nav-item nav-link">
                   Admin
-                </a>
-                <a href="./doctor.html" className="nav-item nav-link">
+                </span>
+                <span onClick={() => ("")} href="./doctor.html" className="nav-item nav-link">
                   Doctor
-                </a>
-                <a href="recepition.html" className="nav-item nav-link">
+                </span>
+                <span onClick={() => ("")} href="recepition.html" className="nav-item nav-link">
                   Recepition
-                </a>
-                <a href="contact.html" className="nav-item nav-link">
+                </span>
+                <span onClick={() => ("")} href="contact.html" className="nav-item nav-link">
                   Contact
-                </a>
-                <a href="about.html" className="nav-item nav-link">
+                </span>
+                <span onClick={() => ("")} href="about.html" className="nav-item nav-link">
                   About
-                </a>
-                <a href="service.html" className="nav-item nav-link">
+                </span>
+                <span onClick={() => ("")} href="service.html" className="nav-item nav-link">
                   Service
-                </a>
+                </span>
               </div>
             </div>
           </nav>
@@ -117,18 +119,18 @@ export default function Home() {
                 Best Healthcare Solution In Your City
               </h1>
               <div className="pt-2">
-                <a
+                <span onClick={() => ("")}
                   href="appointment.html"
                   className="btn btn-light rounded-pill py-md-3 px-md-5 mx-2"
                 >
                   Appointment
-                </a>
-                <a
+                </span>
+                <span onClick={() => ("")}
                   href="patient.html"
                   className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2 "
                 >
                   Patient
-                </a>
+                </span>
               </div>
             </div>
           </div>
@@ -233,9 +235,9 @@ export default function Home() {
                   Kasd dolor no lorem nonumy sit labore tempor at justo rebum
                   rebum stet, justo elitr dolor amet sit
                 </p>
-                <a className="btn btn-lg btn-primary rounded-pill">
+                <span onClick={() => ("")} className="btn btn-lg btn-primary rounded-pill">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -248,9 +250,9 @@ export default function Home() {
                   Kasd dolor no lorem nonumy sit labore tempor at justo rebum
                   rebum stet, justo elitr dolor amet sit
                 </p>
-                <a className="btn btn-lg btn-primary rounded-pill">
+                <span onClick={() => ("")} className="btn btn-lg btn-primary rounded-pill">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -263,9 +265,9 @@ export default function Home() {
                   Kasd dolor no lorem nonumy sit labore tempor at justo rebum
                   rebum stet, justo elitr dolor amet sit
                 </p>
-                <a className="btn btn-lg btn-primary rounded-pill">
+                <span onClick={() => ("")} className="btn btn-lg btn-primary rounded-pill">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -278,9 +280,9 @@ export default function Home() {
                   Kasd dolor no lorem nonumy sit labore tempor at justo rebum
                   rebum stet, justo elitr dolor amet sit
                 </p>
-                <a className="btn btn-lg btn-primary rounded-pill">
+                <span onClick={() => ("")} className="btn btn-lg btn-primary rounded-pill">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -293,9 +295,9 @@ export default function Home() {
                   Kasd dolor no lorem nonumy sit labore tempor at justo rebum
                   rebum stet, justo elitr dolor amet sit
                 </p>
-                <a className="btn btn-lg btn-primary rounded-pill">
+                <span onClick={() => ("")} className="btn btn-lg btn-primary rounded-pill">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -308,9 +310,9 @@ export default function Home() {
                   Kasd dolor no lorem nonumy sit labore tempor at justo rebum
                   rebum stet, justo elitr dolor amet sit
                 </p>
-                <a className="btn btn-lg btn-primary rounded-pill">
+                <span onClick={() => ("")} className="btn btn-lg btn-primary rounded-pill">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
             </div>
           </div>
@@ -350,24 +352,24 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="d-flex mt-auto border-top p-4">
-                    <a
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
                       href="#"
                     >
                       <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
+                    </span>
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
                       href="#"
                     >
                       <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
+                    </span>
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in"></i>
-                    </a>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -393,24 +395,24 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="d-flex mt-auto border-top p-4">
-                    <a
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
                       href="#"
                     >
                       <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
+                    </span>
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
                       href="#"
                     >
                       <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
+                    </span>
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in"></i>
-                    </a>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -436,24 +438,24 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="d-flex mt-auto border-top p-4">
-                    <a
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
                       href="#"
                     >
                       <i className="fab fa-twitter"></i>
-                    </a>
-                    <a
+                    </span>
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
                       href="#"
                     >
                       <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a
+                    </span>
+                    <span onClick={() => ("")}
                       className="btn btn-lg btn-primary btn-lg-square rounded-circle"
                       href="#"
                     >
                       <i className="fab fa-linkedin-in"></i>
-                    </a>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -520,9 +522,9 @@ export default function Home() {
                   alt=""
                 />
                 <div className="p-4">
-                  <a className="h3 d-block mb-3">
+                  <span onClick={() => ("")} className="h3 d-block mb-3">
                     Dolor clita vero elitr sea stet dolor justo diam
-                  </a>
+                  </span>
                   <p className="m-0">
                     Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
                     rebum clita rebum dolor stet amet justo
@@ -558,9 +560,9 @@ export default function Home() {
                   alt=""
                 />
                 <div className="p-4">
-                  <a className="h3 d-block mb-3">
+                  <span onClick={() => ("")} className="h3 d-block mb-3">
                     Dolor clita vero elitr sea stet dolor justo diam
-                  </a>
+                  </span>
                   <p className="m-0">
                     Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
                     rebum clita rebum dolor stet amet justo
@@ -596,9 +598,9 @@ export default function Home() {
                   alt=""
                 />
                 <div className="p-4">
-                  <a className="h3 d-block mb-3">
+                  <span onClick={() => ("")} className="h3 d-block mb-3">
                     Dolor clita vero elitr sea stet dolor justo diam
-                  </a>
+                  </span>
                   <p className="m-0">
                     Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
                     rebum clita rebum dolor stet amet justo
@@ -659,24 +661,24 @@ export default function Home() {
                 Quick Links
               </h4>
               <div className="d-flex flex-column justify-content-start">
-                <a className="text-light mb-2" href="#">
-                  <i className="fa fa-angle-right me-2"></i>Home
-                </a>
-                <a className="text-light mb-2" href="#">
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate('/')} className="fa fa-angle-right me-2"></span>Home
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>About Us
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Our Services
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Meet The Team
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Latest Blog
-                </a>
-                <a className="text-light" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light" href="#">
                   <i className="fa fa-angle-right me-2"></i>Contact Us
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
@@ -684,24 +686,24 @@ export default function Home() {
                 Popular Links
               </h4>
               <div className="d-flex flex-column justify-content-start">
-                <a className="text-light mb-2" href="#">
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Home
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>About Us
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Our Services
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Meet The Team
-                </a>
-                <a className="text-light mb-2" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light mb-2" href="#">
                   <i className="fa fa-angle-right me-2"></i>Latest Blog
-                </a>
-                <a className="text-light" href="#">
+                </span>
+                <span onClick={() => ("")} className="text-light" href="#">
                   <i className="fa fa-angle-right me-2"></i>Contact Us
-                </a>
+                </span>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
@@ -732,9 +734,9 @@ export default function Home() {
         </div>
       </div>
 
-      <a href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top">
+      <span onClick={() => ("")} href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top">
         <i className="bi bi-arrow-up"></i>
-      </a>
+      </span>
     </>
   );
 }
