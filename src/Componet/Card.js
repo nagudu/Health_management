@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { _postApi } from "./Api";
 
 export default function Card() {
     const navigate = useNavigate()
+    const [form,setForm]=useState({
+      firstname:'', 
+      lastname:'',
+      middlename:'',
+      gender:'',
+      state:'',
+      dob:'',
+      phone:'', 
+      username:'', 
+      role:'',
+      password:'',
+      status:'card'
+    })
+
+    const handleChange = ({target:{name,value}})=>{
+      setForm((p)=>({...p,[name]:value}))
+    }
+
+    const handleSubmit = ()=>{
+     _postApi('/api/users/create',form,
+     (res)=>{
+         alert(res)
+     },(err)=>{
+         console.log(err)
+     }
+     )
+    }
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -74,6 +102,7 @@ export default function Card() {
           </nav>
         </div>
       </div>
+      {JSON.stringify(form)}
       <div className="container-fluid py-5">
         <div className="container">
           <div className="row gx-5">
@@ -102,13 +131,16 @@ export default function Card() {
             <div className="col-lg-6">
               <div className="bg-light text-center rounded p-5">
                 <h1 className="mb-4">Get a card </h1>
-                <form>
+                <div>
                   <div className="row g-3">
                     <div className="col-12 col-sm-6">
                       <input
                         type="text"
                         className="form-control bg-white border-0"
                         placeholder="Your Name"
+                        name='firstname'
+                        value={form.firstname}
+                        onChange={handleChange}
                         style={{ height: "55px" }}
                       />
                     </div>
@@ -117,14 +149,20 @@ export default function Card() {
                         type="text"
                         className="form-control bg-white border-0"
                         placeholder="Your Gmail"
+                        name='email'
+                        value={form.email}
+                        onChange={handleChange}
                         style={{ height: "55px" }}
                       />
                     </div>
                     <div className="col-12 col-sm-6">
                       <input
-                        type="number"
+                        type="text"
                         className="form-control bg-white border-0"
                         placeholder="phone No"
+                        name='phone'
+                        value={form.phone}
+                        onClick={handleChange}
                         style={{ height: "55px" }}
                       />
                     </div>
@@ -133,6 +171,9 @@ export default function Card() {
                         type="text"
                         className="form-control bg-white border-0"
                         placeholder="Address"
+                        name='address'
+                        value={form.address}
+                        onChange={handleChange}
                         style={{ height: "55px" }}
                       />
                     </div>
@@ -140,21 +181,27 @@ export default function Card() {
                       <select
                         className="form-select bg-white border-0"
                         style={{ height: "55px" }}
+                        name='gender'
+                        value={form.gender}
+                        onChange={handleChange}
                       >
                         <option selected>Gender</option>
-                        <option value="1">Female</option>
-                        <option value="2">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
                       </select>
                     </div>
                     <div className="col-12 col-sm-6">
                       <select
                         className="form-select bg-white border-0"
                         style={{ height: "55px" }}
+                        name='state'
+                        value={form.state}
+                        onChange={handleChange}
                       >
                         <option selected>state..</option>
-                        <option value="1">Abuja</option>
-                        <option value="2">Kano</option>
-                        <option value="3">Gombe</option>
+                        <option value="Abuja">Abuja</option>
+                        <option value="Kano">Kano</option>
+                        <option value="Gombe">Gombe</option>
                       </select>
                     </div>
                     <div className="col-12 col-sm-6">
@@ -164,12 +211,15 @@ export default function Card() {
                         data-target-input="nearest"
                       >
                         <input
-                          type="text"
+                          type="date"
                           className="form-control bg-white border-0 datetimepicker-input"
                           placeholder="Date"
                           data-target="#date"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name='date'
+                          value={form.date}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -178,6 +228,7 @@ export default function Card() {
                         className="time"
                         id="date of birth"
                         data-target-input="nearest"
+                        
                       >
                         <input
                           type="number"
@@ -186,19 +237,24 @@ export default function Card() {
                           data-target="#time"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name='dob'
+                          value={form.dob}
+                          onChange={handleChange}
                         />
+
                       </div>
                     </div>
                     <div className="col-12">
                       <button
                         className="btn btn-primary w-100 py-3"
-                        type="submit"
+                     onClick={handleSubmit}
+
                       >
                         Submit
                       </button>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
