@@ -5,7 +5,7 @@ import React from "react";
 // import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
 // import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
 // import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-// import  "./lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+import  "./lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
 import "./css/bootstrap.min.css";
 import "./css/style.css";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +63,7 @@ export default function Home() {
       <div className="container-fluid sticky-top bg-white shadow-sm">
         <div className="container">
           <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-            <span onClick={() => ("")} href="index.html" className="navbar-brand">
+            <span onClick={() => ("/")}  className="navbar-brand">
               <h1 className="m-0 text-uppercase text-primary">
                 <i className="fa fa-clinic-medical me-2"></i>HOSPITAL CARE
               </h1>
@@ -78,25 +78,25 @@ export default function Home() {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ms-auto py-0">
-                <span onClick={() => navigate('/')} href="index.html" className="nav-item nav-link">
-                  Home
-                </span>
-                <span onClick={() => ("")} href="admin.html" className="nav-item nav-link">
+                <a onClick={() => navigate('/')}  className="nav-item nav-link">
+                  Homes
+                </a>
+                <span onClick={() => navigate("/admin")} className="nav-item nav-link">
                   Admin
                 </span>
-                <span onClick={() => ("")} href="./doctor.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/doctor")}  className="nav-item nav-link">
                   Doctor
                 </span>
-                <span onClick={() => ("")} href="recepition.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/reception")}  className="nav-item nav-link">
                   Recepition
                 </span>
-                <span onClick={() => ("")} href="contact.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/contact")}  className="nav-item nav-link">
                   Contact
                 </span>
-                <span onClick={() => ("")} href="about.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/about")}  className="nav-item nav-link">
                   About
                 </span>
-                <span onClick={() => ("")} href="service.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/service")}  className="nav-item nav-link">
                   Service
                 </span>
               </div>
@@ -119,13 +119,13 @@ export default function Home() {
                 Best Healthcare Solution In Your City
               </h1>
               <div className="pt-2">
-                <span onClick={() => ("")}
-                  href="appointment.html"
+                <span onClick={() =>navigate ("/appointement")}
+                 
                   className="btn btn-light rounded-pill py-md-3 px-md-5 mx-2"
                 >
                   Appointment
                 </span>
-                <span onClick={() => ("")}
+                <span onClick={() =>navigate ("/patient")}
                   href="patient.html"
                   className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2 "
                 >

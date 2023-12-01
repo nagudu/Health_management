@@ -90,20 +90,7 @@ export default function NewFile() {
                 >
                   New file
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  href="#"
-                  className="nav-item nav-link"
-                >
-                  Audio Call
-                </span>
-                <span
-                  onClick={() => navigate("/")}
-                  href="#"
-                  className="nav-item nav-link"
-                >
-                  Vidoe Call
-                </span>
+              
               </div>
             </div>
           </nav>
