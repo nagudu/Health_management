@@ -10,6 +10,7 @@ import Reception from "../Componet/Reception";
 import Card from "../Componet/Card";
 import Contact from "../Componet/Contact";
 import About from "../Componet/About";
+import Service from "../Componet/Service";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -52,6 +53,10 @@ function AppNavigation() {
         {
             path:'/about',
             element:<About />
+        },
+        {
+            path:'/service',
+            element:<Service />
         },
     ])
 
