@@ -60,7 +60,7 @@ function AppNavigation() {
             element:<Service />
         },
         {
-            path:'/new-file',
+            path:'/file',
             element:<NewFile />
         },
     ])
