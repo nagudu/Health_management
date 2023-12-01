@@ -11,6 +11,7 @@ import Card from "../Componet/Card";
 import Contact from "../Componet/Contact";
 import About from "../Componet/About";
 import Service from "../Componet/Service";
+import NewFile from "../Componet/NewFile";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -57,6 +58,10 @@ function AppNavigation() {
         {
             path:'/service',
             element:<Service />
+        },
+        {
+            path:'/new-file',
+            element:<NewFile />
         },
     ])
 
