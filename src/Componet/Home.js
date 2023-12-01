@@ -18,7 +18,8 @@ import { useNavigate } from "react-router-dom";
 // import "./lib/tempusdominus/js/moment-timezone.min.js"
 // import "./lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"
 // import "./js/main.js"
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 export default function Home() {
     const navigate = useNavigate()
   return (

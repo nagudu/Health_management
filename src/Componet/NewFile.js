@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { _postApi } from "./Api";
 
 export default function NewFile() {
   const _form = {
@@ -11,11 +12,18 @@ export default function NewFile() {
     gender: "",
     dob: "",
     phone: "",
+    status:'file'
   };
-  const handleSubmit = () => {
-    setForm(_form);
-    console.log(_form);
-  };
+  const handleSubmit = ()=>{
+    _postApi('/api/users/create',form,
+    (res)=>{
+        alert(res)
+    },(err)=>{
+        console.log(err)
+    }
+    )
+   }
+
   const [form, setForm] = useState(_form);
   const navigate = useNavigate();
 
@@ -205,9 +213,9 @@ export default function NewFile() {
                         onChange={handleChange}
                       >
                         <option selected>Choose State</option>
-                        <option value="1">Abuja</option>
-                        <option value="2">Kano</option>
-                        <option value="3">Gombe</option>
+                        <option value="1abuja">Abuja</option>
+                        <option value="kano">Kano</option>
+                        <option value="gombe">Gombe</option>
                       </select>
                     </div>
                     <div className="col-12 col-sm-6">
@@ -219,8 +227,8 @@ export default function NewFile() {
                         onChange={handleChange}
                       >
                         <option selected>Gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                       </select>
                     </div>
                     <div className="col-12 col-sm-6">
