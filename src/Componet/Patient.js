@@ -59,13 +59,13 @@ export default function Patient() {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ms-auto py-0">
-                <span onClick={() => navigate("/patient")} href="index.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/")}  className="nav-item nav-link">
                   Home
                 </span>
-                <span onClick={() => navigate("/patient")} href="card.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/singup")}  className="nav-item nav-link">
                   Card
                 </span>
-                <span onClick={() => navigate("/patient")} href="file.html" className="nav-item nav-link">
+                <span onClick={() => navigate("/file")}  className="nav-item nav-link">
                   New file
                 </span>
                 {/* <span onClick={() => navigate("/patient")} href="#" className="nav-item nav-link">Audio Call</span>
