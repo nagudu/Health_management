@@ -63,7 +63,7 @@ export default function About() {
     <div className="container-fluid py-5">
         <div className="container">
             <div className="row gx-5">
-                <div className="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                <div className="col-lg-5 mb-5 mb-lg-0" style={{minHeight: "500px"}}>
                     <div className="position-relative h-100">
                         <img className="position-absolute w-100 h-100 rounded" src="img/about.jpg" style={{objectFit: "cover"}} />
                     </div>
@@ -111,9 +111,9 @@ export default function About() {
                 <h1 className="display-4 mb-4">Find A Healthcare Professionals</h1>
                 <h5 className="text-white fw-normal">Duo ipsum erat stet dolor sea ut nonumy tempor. Tempor duo lorem eos sit sed ipsum takimata ipsum sit est. Ipsum ea voluptua ipsum sit justo</h5>
             </div>
-            <div className="mx-auto" style="width: 100%; max-width: 600px;">
+            <div className="mx-auto" style={{width: "100%", maxWidth: "600px"}}>
                 <div className="input-group">
-                    <select className="form-select border-primary w-25" style="height: 60px;">
+                    <select className="form-select border-primary w-25" style={{height: "60px"}}>
                         <option selected>Department</option>
                         <option value="1">Department 1</option>
                         <option value="2">Department 2</option>
