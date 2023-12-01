@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function NewFile() {
+  const _form = {
+    firstname: "",
+    middlename: "",
+    lastname: "",
+    email: "",
+    state: "",
+    gender: "",
+    dob: "",
+    phone: "",
+  };
+  const handleSubmit = () => {
+    setForm(_form);
+    console.log(_form);
+  };
+  const [form, setForm] = useState(_form);
   const navigate = useNavigate();
+
+  const handleChange = ({ target: { name, value } }) => {
+    setForm((p) => ({ ...p, [name]: value }));
+  };
   return (
     <div>
+      {JSON.stringify(form)}
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
         <div className="container">
           <div className="row">
@@ -90,7 +110,6 @@ export default function NewFile() {
                 >
                   New file
                 </span>
-              
               </div>
             </div>
           </nav>
@@ -140,14 +159,20 @@ export default function NewFile() {
                         placeholder="Frist Name"
                         required
                         style={{ height: "55px" }}
+                        name="firstname"
+                        value={form.firstname}
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="col-12 col-sm-6">
                       <input
-                        type="email"
+                        type="text"
                         className="form-control bg-white border-0"
                         placeholder="Middle Name"
                         style={{ height: "55px" }}
+                        name="middlename"
+                        value={form.middlename}
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="col-12 col-sm-6">
@@ -157,6 +182,9 @@ export default function NewFile() {
                         placeholder="Last Name"
                         required
                         style={{ height: "55px" }}
+                        name="lastname"
+                        value={form.lastname}
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="col-12 col-sm-6">
@@ -172,6 +200,9 @@ export default function NewFile() {
                       <select
                         className="form-select bg-white border-0"
                         style={{ height: "55px" }}
+                        name="state"
+                        value={form.state}
+                        onChange={handleChange}
                       >
                         <option selected>Choose State</option>
                         <option value="1">Abuja</option>
@@ -183,10 +214,13 @@ export default function NewFile() {
                       <select
                         className="form-select bg-white border-0"
                         style={{ height: "55px" }}
+                        name="gender"
+                        value={form.gender}
+                        onChange={handleChange}
                       >
                         <option selected>Gender</option>
-                        <option value="1">Female</option>
-                        <option value="2">Male</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
                       </select>
                     </div>
                     <div className="col-12 col-sm-6">
@@ -196,13 +230,16 @@ export default function NewFile() {
                         data-target-input="nearest"
                       >
                         <input
-                          type="number"
+                          type="date"
                           className="form-control bg-white border-0 datetimepicker-input"
                           placeholder="Date Of Birth"
                           data-target="#date"
                           data-toggle="datetimepicker"
                           required
                           style={{ height: "55px" }}
+                          name="dob"
+                          value={form.dob}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -220,6 +257,9 @@ export default function NewFile() {
                           data-toggle="datetimepicker"
                           required
                           style={{ height: "55px" }}
+                          name="phone"
+                          value={form.phone}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -227,6 +267,7 @@ export default function NewFile() {
                       <button
                         className="btn btn-primary w-100 py-3"
                         type="submit"
+                        onClick={() => handleSubmit()}
                       >
                         Submit
                       </button>
@@ -267,46 +308,22 @@ export default function NewFile() {
                 Quick Links
               </h4>
               <div className="d-flex flex-column justify-content-start">
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Home
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>About Us
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Our Services
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Meet The Team
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Latest Blog
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light">
                   <i className="fa fa-angle-right me-2"></i>Contact Us
                 </span>
               </div>
@@ -316,46 +333,22 @@ export default function NewFile() {
                 Popular Links
               </h4>
               <div className="d-flex flex-column justify-content-start">
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Home
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>About Us
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Our Services
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Meet The Team
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light mb-2"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light mb-2">
                   <i className="fa fa-angle-right me-2"></i>Latest Blog
                 </span>
-                <span
-                  onClick={() => navigate("/")}
-                  className="text-light"
-                  href="#"
-                >
+                <span onClick={() => navigate("/")} className="text-light">
                   <i className="fa fa-angle-right me-2"></i>Contact Us
                 </span>
               </div>
@@ -389,7 +382,6 @@ export default function NewFile() {
       </div>
       <span
         onClick={() => navigate("/")}
-        href="#"
         className="btn btn-lg btn-primary btn-lg-square back-to-top"
       >
         <i className="bi bi-arrow-up"></i>
