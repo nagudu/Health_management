@@ -62,7 +62,7 @@ export default function Patient() {
                 <span onClick={() => navigate("/")}  className="nav-item nav-link">
                   Home
                 </span>
-                <span onClick={() => navigate("/singup")}  className="nav-item nav-link">
+                <span onClick={() => navigate("/card")}  className="nav-item nav-link">
                   Card
                 </span>
                 <span onClick={() => navigate("/file")}  className="nav-item nav-link">

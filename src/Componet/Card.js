@@ -62,18 +62,13 @@ export default function Card() {
                 <span onClick={()=> navigate("/")}  className="nav-item nav-link">
                   Home
                 </span>
-                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
+                <span onClick={()=> navigate("/card")}  className="nav-item nav-link">
                   Card
                 </span>
-                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
+                <span onClick={()=> navigate("/file")}  className="nav-item nav-link">
                   New file
                 </span>
-                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
-                  Audio Call
-                </span>
-                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
-                  Vidoe Call
-                </span>
+            
               </div>
             </div>
           </nav>
