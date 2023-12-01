@@ -59,13 +59,13 @@ export default function Card() {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
               <div className="navbar-nav ms-auto py-0">
-                <span onClick={()=> navigate("/")} href="index.html" className="nav-item nav-link">
+                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
                   Home
                 </span>
-                <span onClick={()=> navigate("/")} href="card.html" className="nav-item nav-link">
+                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
                   Card
                 </span>
-                <span onClick={()=> navigate("/")} href="file.html" className="nav-item nav-link">
+                <span onClick={()=> navigate("/")}  className="nav-item nav-link">
                   New file
                 </span>
                 <span onClick={()=> navigate("/")}  className="nav-item nav-link">
