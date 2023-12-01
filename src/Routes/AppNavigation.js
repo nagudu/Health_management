@@ -9,6 +9,7 @@ import Appointement from "../Componet/Appointement";
 import Reception from "../Componet/Reception";
 import Card from "../Componet/Card";
 import Contact from "../Componet/Contact";
+import About from "../Componet/About";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -47,6 +48,10 @@ function AppNavigation() {
         {
             path:'/contact',
             element:<Contact />
+        },
+        {
+            path:'/about',
+            element:<About />
         },
     ])
 
