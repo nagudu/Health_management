@@ -12,7 +12,8 @@ export default function NewFile() {
     gender: "",
     dob: "",
     phone: "",
-    status:'file'
+    status:'pending',
+    role:'file'
   };
   const handleSubmit = ()=>{
     _postApi('/api/users/create',form,

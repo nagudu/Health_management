@@ -3,7 +3,7 @@ import { _fetchApi, _postApi } from './Api';
 import { Navigate, useNavigate } from 'react-router';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-export default function PriscriptionTable() {
+export default function CardTable() {
 const navigate = useNavigate()
     const [data,setData]=useState([])
 
@@ -138,23 +138,7 @@ const navigate = useNavigate()
         </div>
     </li>
 
-    <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/priscription')} data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Priscription</span>
-        </span>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li>
+
     <hr class="sidebar-divider" />
 
 {/* 
@@ -408,7 +392,7 @@ const navigate = useNavigate()
         <div class="container-fluid">
 
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Priscription</h1>
+                <h1 class="h3 mb-0 text-gray-800">Cards</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
@@ -421,9 +405,8 @@ const navigate = useNavigate()
                     <div class="card shadow mb-4">
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Priscription</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Cards</h6>
                             <div class="dropdown no-arrow">
-                                
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -439,8 +422,7 @@ const navigate = useNavigate()
                             </div>
                         </div>
                         <div class="card-body">
-                        <Button>Add New</Button>
-                        <form class="form-inline mr-auto col-md-12 mb-3 mt-3">
+                        <form class="form-inline mr-auto col-md-12 mb-3 ">
                             <div class="input-group">
                                 <input type="text" class="form-control bg-light border-0 small"
                                     placeholder="Search for..." aria-label="Search"

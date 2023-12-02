@@ -16,6 +16,9 @@ import Dashboard from "../Componet/Dashboard";
 import AppointmentTable from "../Componet/AppointmentTable";
 import PatientTable from "../Componet/PatientTable";
 import Priscription from "../Componet/Priscription";
+import CardTable from "../Componet/CardTable";
+import PriscriptionTable from "../Componet/Priscription";
+import PriscriptionForm from "../Componet/PriscriptionForm";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -80,9 +83,17 @@ function AppNavigation() {
             element:<PatientTable />
         },
         {
+            path:'/priscription-form',
+            element:<PriscriptionForm />
+        },
+        {
             path:'/priscription',
             element:<Priscription />
         },
+        {
+            path:'/card-table',
+            element:<CardTable />
+        }
     ])
 
     return element;

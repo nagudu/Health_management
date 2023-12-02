@@ -2,12 +2,39 @@ import React, { useState, useEffect } from "react";
 import { _fetchApi, _postApi } from "./Api";
 import { Navigate, useNavigate } from "react-router";
 
-export default function AppointmentTable() {
+export default function PriscriptionForm() {
+  const [form,setForm]=useState({
+    firstname:'', 
+    lastname:'',
+    middlename:'',
+    gender:'',
+    state:'',
+    dob:'',
+    phone:'', 
+    username:'', 
+    role:'card',
+    password:'',
+    status:'pending'
+  })
+
+  const handleChange = ({target:{name,value}})=>{
+    setForm((p)=>({...p,[name]:value}))
+  }
+  const handleSubmit = ()=>{
+    _postApi('/api/users/create',form,
+    (res)=>{
+        alert(res)
+    },(err)=>{
+        console.log(err)
+    }
+    )
+   }
+
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const getAppoint = () => {
+  useEffect(() => {
     _fetchApi(
-      "/get-appoint",
+      "/get-users",
       (res) => {
         setData(res.resp[0]);
       },
@@ -15,24 +42,7 @@ export default function AppointmentTable() {
         console.log(err);
       }
     );
-  };
-  useEffect(() => {
-    getAppoint();
   }, []);
-
-  const updateAppoint = (id) => {
-    _postApi(
-      "/update-appointment",
-      { id: id },
-      (res) => {
-        alert("success");
-        getAppoint();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  };
   return (
     <div>
       <div id="wrapper">
@@ -96,9 +106,9 @@ export default function AppointmentTable() {
           </li>
 
           <li class="nav-item">
-            <a
+            <span
               class="nav-link collapsed"
-              href="#"
+              onClick={() => navigate("/apoint-table")}
               data-toggle="collapse"
               data-target="#collapseUtilities"
               aria-expanded="true"
@@ -106,7 +116,7 @@ export default function AppointmentTable() {
             >
               <i class="fas fa-fw fa-cog"></i>
               <span>Appointments</span>
-            </a>
+            </span>
             <div
               id="collapseUtilities"
               class="collapse"
@@ -131,24 +141,6 @@ export default function AppointmentTable() {
             </div>
           </li>
 
-          <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/card-table')} data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Cards</span>
-        </span>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li>
-
           <hr class="sidebar-divider" />
 
           {/* 
@@ -158,7 +150,7 @@ export default function AppointmentTable() {
 
           {/*    
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Pages</span>
@@ -233,7 +225,7 @@ export default function AppointmentTable() {
                 <li class="nav-item dropdown no-arrow d-sm-none">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="searchDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -269,7 +261,7 @@ export default function AppointmentTable() {
                 <li class="nav-item dropdown no-arrow mx-1">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="alertsDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -284,7 +276,7 @@ export default function AppointmentTable() {
                     aria-labelledby="alertsDropdown"
                   >
                     <h6 class="dropdown-header">Alerts Center</h6>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="mr-3">
                         <div class="icon-circle bg-primary">
                           <i class="fas fa-file-alt text-white"></i>
@@ -297,7 +289,7 @@ export default function AppointmentTable() {
                         </span>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="mr-3">
                         <div class="icon-circle bg-success">
                           <i class="fas fa-donate text-white"></i>
@@ -308,7 +300,7 @@ export default function AppointmentTable() {
                         $290.29 has been deposited into your account!
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="mr-3">
                         <div class="icon-circle bg-warning">
                           <i class="fas fa-exclamation-triangle text-white"></i>
@@ -322,7 +314,7 @@ export default function AppointmentTable() {
                     </a>
                     <a
                       class="dropdown-item text-center small text-gray-500"
-                      href="#"
+                      
                     >
                       Show All Alerts
                     </a>
@@ -332,7 +324,7 @@ export default function AppointmentTable() {
                 <li class="nav-item dropdown no-arrow mx-1">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="messagesDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -347,7 +339,7 @@ export default function AppointmentTable() {
                     aria-labelledby="messagesDropdown"
                   >
                     <h6 class="dropdown-header">Message Center</h6>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -366,7 +358,7 @@ export default function AppointmentTable() {
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -383,7 +375,7 @@ export default function AppointmentTable() {
                         <div class="small text-gray-500">Jae Chun · 1d</div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -402,7 +394,7 @@ export default function AppointmentTable() {
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -424,7 +416,7 @@ export default function AppointmentTable() {
                     </a>
                     <a
                       class="dropdown-item text-center small text-gray-500"
-                      href="#"
+                      
                     >
                       Read More Messages
                     </a>
@@ -436,7 +428,7 @@ export default function AppointmentTable() {
                 <li class="nav-item dropdown no-arrow">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="userDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -456,22 +448,22 @@ export default function AppointmentTable() {
                     class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown"
                   >
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" >
                       <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                       Profile
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" >
                       <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                       Settings
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" >
                       <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                       Activity Log
                     </a>
                     <div class="dropdown-divider"></div>
                     <a
                       class="dropdown-item"
-                      href="#"
+                      
                       data-toggle="modal"
                       data-target="#logoutModal"
                     >
@@ -484,9 +476,9 @@ export default function AppointmentTable() {
             </nav>
             <div class="container-fluid">
               <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Appointments</h1>
+                <h1 class="h3 mb-0 text-gray-800">Priscription</h1>
                 <a
-                  href="#"
+                  
                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
                 >
                   <i class="fas fa-download fa-sm text-white-50"></i> Generate
@@ -499,12 +491,12 @@ export default function AppointmentTable() {
                   <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">
-                        Appointments
+                        Priscription
                       </h6>
                       <div class="dropdown no-arrow">
                         <a
                           class="dropdown-toggle"
-                          href="#"
+                          
                           role="button"
                           id="dropdownMenuLink"
                           data-toggle="dropdown"
@@ -518,77 +510,62 @@ export default function AppointmentTable() {
                           aria-labelledby="dropdownMenuLink"
                         >
                           <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" >
                             Action
                           </a>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" >
                             Another action
                           </a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" >
                             Something else here
                           </a>
                         </div>
                       </div>
                     </div>
-                    <div class="card-body">
-                      <form class="form-inline mr-auto col-md-12 mb-3 ">
-                        <div class="input-group">
-                          <input
-                            type="text"
-                            class="form-control bg-light border-0 small"
-                            placeholder="Search for..."
-                            aria-label="Search"
-                            aria-describedby="basic-addon2"
-                          />
-                          <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                              <i class="fas fa-search fa-sm"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                      <table className="table table-stripped">
-                        <tr>
-                          <th>id</th>
-                          <th>name</th>
-                          <th>department</th>
-                          <th>segment</th>
-                          <th>date</th>
-                          <th>time</th>
-                          <th>status</th>
-                          <th>Action</th>
-                        </tr>
-                        {data &&
-                          data.map((item, i) => (
-                            <tr
-                              className={
-                                item.status === "approved"
-                                  ? "bg-success text-white"
-                                  : "bg-danger text-white"
-                              }
-                            >
-                              <td>{i + 1}</td>
-                              <td>{item.name}</td>
-                              <td>{item.department}</td>
-                              <td>{item.medical}</td>
-                              <td>{item.date}</td>
-                              <td>{item.time}</td>
-                              <td>{item.status}</td>
-                              <td>
-                                <button
-                                  className="btn btn-success text-dark"
-                                  style={{ color: "black" }}
-                                  onClick={() => updateAppoint(item.id)}
-                                >
-                                  Approve
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
-                      </table>
-                      <div class="mt-4 text-center small"></div>
+                    <div className="col-lg-12">
+              <div className="bg-light text-center rounded p-5">
+                {/* <h1 className="mb-4"> Priscription</h1> */}
+                <div>
+                  <div className="row g-3">
+                    <div className="col-12 col-sm-6">
+                      <input
+                        type="text"
+                        className="form-control bg-white border-0"
+                        placeholder="Title"
+                        name='title'
+                        value={form.title}
+                        onChange={handleChange}
+                        style={{ height: "55px" }}
+                      />
                     </div>
+                    <div className="col-12 col-sm-6"></div>
+                    <div className="col-12 col-sm-6">
+                      <textarea
+                        type="text"
+                        className="form-control bg-white border-0"
+                        placeholder="Priscription"
+                        name='priscription'
+                        value={form.priscription}
+                        onChange={handleChange}
+                        style={{ height: "55px", height: "170px" }}
+                      />
+                    </div>
+                    <div className="col-12 col-sm-6"></div>
+                    
+                    <div className="col-6">
+                      <button
+                        className="btn btn-primary w-100 py-3"
+                     onClick={handleSubmit}
+
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
                   </div>
                 </div>
               </div>
