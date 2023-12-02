@@ -19,6 +19,7 @@ import Priscription from '../Componet/Priscription'
 import CardTable from '../Componet/CardTable'
 import DoctorTable from '../Componet/DoctorTable'
 import DoctorForm from '../Componet/DoctorForm'
+import PriscriptionForm from '../Componet/PriscriptionForm'
 
 function AppNavigation() {
   let element = useRoutes([
@@ -97,7 +98,11 @@ function AppNavigation() {
     {
         path:'/doctor-form',
         element:<DoctorForm />
-    }
+    },
+    {
+        path:'/priscription-form',
+        element:<PriscriptionForm />
+    },
   ])
 
   return element
