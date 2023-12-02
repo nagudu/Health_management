@@ -1,23 +1,63 @@
 import React, { useState, useEffect } from 'react'
-import { _fetchApi } from './Api';
+import { _fetchApi, _postApi } from './Api';
 import { Navigate, useNavigate } from 'react-router';
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 export default function PatientTable() {
 const navigate = useNavigate()
     const [data,setData]=useState([])
-    useEffect(
-    ()=>{
-        _fetchApi('/get-users',
+
+    const getData = ()=>{
+        _fetchApi('/get-users?status=file',
         (res)=>{
             setData(res.resp[0])
         },(err)=>{
             console.log(err)
         }
         )
+    }
+    useEffect(
+    ()=>{
+        getData()
     },[]
     )
+
+    const handleUpdate  = (id)=>{
+        _postApi('/update-user',
+        {id:id},
+        (res)=>{
+            console.log(res)
+            getData()
+        },
+        (err)=>{
+        console.log(err)
+         }
+        )
+    }
+
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+    const modals = () => {
+      toggle();
+    };
+    const [val,setVal]=useState('')
   return (
     <div>
+         <Modal isOpen={modal} toggle={toggle} size="md">
+        <ModalHeader toggle={toggle}>View Bug Report</ModalHeader>
+        <ModalBody>
+          <b>Username:{val}</b><br />
+          <b>Password:123456</b><br />
+    
+
+        </ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={toggle}>
+            close
+          </Button>
+          {""}
+        </ModalFooter>
+      </Modal>
  <div id="wrapper">
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -381,12 +421,12 @@ const navigate = useNavigate()
                                  <th>id</th>
                                  <th>First name</th>
                                  <th>Last Name</th>
-                                 <th>username</th>
+                               
                                  <th>gender</th>
                                  <th>date of birth</th>
                                  <th>phone</th>
                                  <th>email</th>
-                                 <th>password</th>
+                               
                                  <th>status</th>
                                  <th>Action</th>
 
@@ -397,14 +437,12 @@ const navigate = useNavigate()
                                          <td>{i+1}</td>
                                          <td>{item.firstname}</td>
                                          <td>{item.lastname}</td>
-                                         <td>{item.usrname}</td>
                                          <td>{item.gender}</td>
                                          <td>{item.dob}</td>
                                          <td>{item.phone}</td>
                                          <td>{item.email}</td>
-                                         <td>{}</td>
                                          <td>{item.status}</td>
-                                         <td><button className='btn btn-success text-dark' style={{color:'black'}}>Approve</button></td>
+                                         <td>{item.status==='pending'?<button onClick={()=>handleUpdate(item.id)} className='btn btn-success text-dark' style={{color:'black'}}>Approve</button>:<button onClick={()=>{setVal(item.username);toggle()}}    className='btn btn-primary text-dark'>view</button>}</td>
                                      </tr>  
                                  ))
                              }
