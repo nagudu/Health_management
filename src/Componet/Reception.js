@@ -156,6 +156,9 @@ export default function Reception() {
                           data-target="#gmail"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name="email"
+                          value={form.email}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -172,6 +175,9 @@ export default function Reception() {
                           data-target="#password"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name="password"
+                          value={form.passwod}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
