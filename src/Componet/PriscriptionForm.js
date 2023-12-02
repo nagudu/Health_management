@@ -1,22 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { _fetchApi, _postApi } from "./Api";
-import { Navigate, useNavigate } from "react-router";
+import { Navigate, useNavigate ,useParams} from "react-router";
+import useQuery from "./useQuery";
+import { Button } from "reactstrap";
 
 export default function PriscriptionForm() {
+  // const navigate =useNavigate()
+  const params  = useQuery()
+ let id = params.get("id")
+ let patient_id = params.get("patient_id")
   const [form, setForm] = useState({
     title: "",
     priscription: "",
+    patient_id:patient_id,
+    doctor_id:id,
   });
 
   const handleChange = ({ target: { name, value } }) => {
     setForm((p) => ({ ...p, [name]: value }));
   };
+  
+  const navigate = useNavigate();
   const handleSubmit = () => {
     _postApi(
       "/api/priscription",
       form,
       (res) => {
-        alert(res);
+        alert('success');
+        navigate(-1)
       },
       (err) => {
         console.log(err);
@@ -24,19 +35,10 @@ export default function PriscriptionForm() {
     );
   };
 
-  const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    _fetchApi(
-      "/get-users",
-      (res) => {
-        setData(res.resp[0]);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, []);
+
+
+  let users = localStorage.getItem("userdata")
+  const user = JSON.parse(users)
   return (
     <div>
       <div id="wrapper">
@@ -52,7 +54,7 @@ export default function PriscriptionForm() {
               <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">
-              Receptionist <sup></sup>
+            {user?.role} <sup></sup>
             </div>
           </a>
 
@@ -69,37 +71,8 @@ export default function PriscriptionForm() {
 
           <div class="sidebar-heading">Interface</div>
 
-          <li class="nav-item">
-            <span
-              class="nav-link collapsed"
-              onClick={() => navigate("/patient-table")}
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-              aria-expanded="true"
-              aria-controls="collapseTwo"
-            >
-              <i class="fas fa-fw fa-user"></i>
-              <span>Patients</span>
-            </span>
-            <div
-              id="collapseTwo"
-              class="collapse"
-              aria-labelledby="headingTwo"
-              data-parent="#accordionSidebar"
-            >
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">
-                  Buttons
-                </a>
-                <a class="collapse-item" href="cards.html">
-                  Cards
-                </a>
-              </div>
-            </div>
-          </li>
 
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <span
               class="nav-link collapsed"
               onClick={() => navigate("/apoint-table")}
@@ -133,9 +106,115 @@ export default function PriscriptionForm() {
                 </a>
               </div>
             </div>
-          </li>
+          </li> */}
+         {
+    user&&user?.role==='admin'||'receptionist'?
+    <li class="nav-item">
+    <span class="nav-link collapsed" onClick={()=>navigate('/patient-table')} data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Patients</span>
+        </span>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.html">Buttons</a>
+                <a class="collapse-item" href="cards.html">Cards</a>
+            </div>
+        </div>
+    </li>
+:null
+}
 
-          <hr class="sidebar-divider" />
+    
+{
+  user&&user?.role==='admin'||'receptionist'?
+  <li class="nav-item">
+  <span class="nav-link collapsed" onClick={()=>navigate('/apoint-table')} data-toggle="collapse" data-target="#collapseUtilities"
+      aria-expanded="true" aria-controls="collapseUtilities">
+      <i class="fas fa-fw fa-cog"></i>
+      <span>Appointments</span>
+  </span>
+  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+      data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Custom Utilities:</h6>
+          <a class="collapse-item" href="utilities-color.html">Colors</a>
+          <a class="collapse-item" href="utilities-border.html">Borders</a>
+          <a class="collapse-item" href="utilities-animation.html">Animations</a>
+          <a class="collapse-item" href="utilities-other.html">Other</a>
+      </div>
+  </div>
+</li>:null
+}
+   
+    {
+        user&&user?.role==='doctor'?
+        <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/priscription')} data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Prescription</span>
+        </span>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>:null
+    }
+
+{
+    user&&user?.role==='admin'?
+
+    <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Doctor</span>
+        </span>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>:null
+    }
+    {
+       user&&user?.role==='admin'||'receptionist'?  
+       <li class="nav-item">
+       <span class="nav-link collapsed" onClick={()=>navigate('/card-table')} data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+           <i class="fas fa-fw fa-users"></i>
+           <span>Cards</span>
+       </span>
+       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+           data-parent="#accordionSidebar">
+           <div class="bg-white py-2 collapse-inner rounded">
+               <h6 class="collapse-header">Custom Utilities:</h6>
+               <a class="collapse-item" href="utilities-color.html">Colors</a>
+               <a class="collapse-item" href="utilities-border.html">Borders</a>
+               <a class="collapse-item" href="utilities-animation.html">Animations</a>
+               <a class="collapse-item" href="utilities-other.html">Other</a>
+           </div>
+       </div>
+   </li>:null
+    }
+   
+
+    <hr class="sidebar-divider" />
+    <Button color="danger" className="m-2" onClick={()=>navigate('/')}>Logout</Button>
+          {/* </div> */}
 
           {/* 
     <div class="sidebar-heading">
@@ -418,14 +497,11 @@ export default function PriscriptionForm() {
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                  >
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                      Douglas McGee
-                    </span>
-                    <img
-                      class="img-profile rounded-circle"
-                      src="img/undraw_profile.svg"
-                    />
+                  >              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{user&&user?.firstname} {user&&user?.lastname}</span>
+                  <img
+                class="img-profile rounded-circle"
+                src={require("./download.png")}
+              />
                   </a>
 
                   <div
@@ -499,6 +575,7 @@ export default function PriscriptionForm() {
                     <div className="col-lg-12">
                       <div className="bg-light text-center rounded p-5">
                         {/* <h1 className="mb-4"> Priscription</h1> */}
+                        {/* {JSON.stringify(form)} */}
                         <div>
                           <div className="row g-3">
                             <div className="col-12 col-sm-6">

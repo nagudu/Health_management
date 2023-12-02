@@ -22,8 +22,8 @@ export default function Reception() {
 
         localStorage.setItem('userdata', JSON.stringify(res.role));
         setData(res);
-        if(user.role==='doctor'){
-          navigate('/doctor-table')
+        if(user.role==='receptionist'){
+          navigate('/dashboard')
         }else(
           navigate("/patient-table")
         )
@@ -33,6 +33,8 @@ export default function Reception() {
       },
     );
   };
+  let users = localStorage.getItem("userdata")
+  const user = JSON.parse(users)
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -141,7 +143,7 @@ export default function Reception() {
             <div className="col-lg-6">
               <div className="bg-light text-center rounded p-5">
                 <h1 className="mb-4">login details</h1>
-                <form>
+                <div>
                   <div className="row g-3">
                     <div className="col-12 col-sm-6">
                       <div
@@ -176,7 +178,7 @@ export default function Reception() {
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
                           name="password"
-                          value={form.passwod}
+                          value={form.password}
                           onChange={handleChange}
                         />
                       </div>
@@ -184,14 +186,14 @@ export default function Reception() {
                     <div className="col-12">
                       <button
                         className="btn btn-primary w-100 py-3"
-                        type="submit"
-                        onClick={()=> handleSubmit}
+                        
+                        onClick={()=> handleSubmit()}
                       >
                         login
                       </button>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>

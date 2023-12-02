@@ -6,7 +6,7 @@ export default function () {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: '',
-    passwod: '',
+    password: '',
   });
 
   const handleChange = ({ target: { name, value } }) => {
@@ -18,11 +18,11 @@ export default function () {
       '/api/users/login',
       form,
       (res) => {
-        let user = res.role;
+        let user = res?.role;
 
-        localStorage.setItem('userdata', JSON.stringify(res.role));
+        localStorage.setItem('userdata', JSON.stringify(res?.role));
         setData(res);
-        if(user.role==='doctor'){
+        if(user?.role==='doctor'){
           navigate('/priscription')
         }else(
           navigate("/patient-table")
@@ -33,6 +33,7 @@ export default function () {
       },
     );
   };
+  
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -225,8 +226,8 @@ export default function () {
                           data-target="#password"
                           data-toggle="datetimepicker"
                           style={{ height: '55px' }}
-                          name="passwod"
-                          value={form.passwod}
+                          name="password"
+                          value={form.password}
                           onChange={handleChange}
                         />
                       </div>

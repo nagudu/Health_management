@@ -10,7 +10,7 @@ import "./css/bootstrap.min.css";
 import "./css/style.css";
 import { useNavigate } from "react-router-dom";
 // import "https://code.jquery.com/jquery-3.4.1.min.js"
-import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+// import "https://c  dn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
 // import "./lib/easing/easing.min.js"
 // import "./lib/waypoints/waypoints.min.js"
 // import "./lib/owlcarousel/owl.carousel.min.js"

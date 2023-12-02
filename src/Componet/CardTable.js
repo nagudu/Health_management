@@ -41,6 +41,8 @@ const navigate = useNavigate()
       toggle();
     };
     const [val,setVal]=useState('')
+    let users = localStorage.getItem("userdata")
+    const user = JSON.parse(users)
   return (
     <div>
          <Modal isOpen={modal} toggle={toggle} size="md">
@@ -86,6 +88,8 @@ const navigate = useNavigate()
     </div>
 
 
+    {
+    user&&user?.role==='admin'||'receptionist'?
     <li class="nav-item">
     <span class="nav-link collapsed" onClick={()=>navigate('/patient-table')} data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
@@ -100,31 +104,38 @@ const navigate = useNavigate()
             </div>
         </div>
     </li>
+:null
+}
 
-
-    <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/apoint-table')} data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Appointments</span>
-        </span>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/card-table')} data-toggle="collapse" data-target="#collapseUtilities"
+    
+{
+  user&&user?.role==='admin'||'receptionist'?
+  <li class="nav-item">
+  <span class="nav-link collapsed" onClick={()=>navigate('/apoint-table')} data-toggle="collapse" data-target="#collapseUtilities"
+      aria-expanded="true" aria-controls="collapseUtilities">
+      <i class="fas fa-fw fa-cog"></i>
+      <span>Appointments</span>
+  </span>
+  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+      data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Custom Utilities:</h6>
+          <a class="collapse-item" href="utilities-color.html">Colors</a>
+          <a class="collapse-item" href="utilities-border.html">Borders</a>
+          <a class="collapse-item" href="utilities-animation.html">Animations</a>
+          <a class="collapse-item" href="utilities-other.html">Other</a>
+      </div>
+  </div>
+</li>:null
+}
+   
+    {
+        user&&user?.role==='doctor'?
+        <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/priscription')} data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-users"></i>
-            <span>Cards</span>
+            <span>Prescription</span>
         </span>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
@@ -136,7 +147,11 @@ const navigate = useNavigate()
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
+    </li>:null
+    }
+
+{
+    user&&user?.role==='admin'?
 
     <li class="nav-item">
         <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
@@ -154,10 +169,32 @@ const navigate = useNavigate()
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
-
+    </li>:null
+    }
+    {
+       user&&user?.role==='admin'||'receptionist'?  
+       <li class="nav-item">
+       <span class="nav-link collapsed" onClick={()=>navigate('/card-table')} data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+           <i class="fas fa-fw fa-users"></i>
+           <span>Cards</span>
+       </span>
+       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+           data-parent="#accordionSidebar">
+           <div class="bg-white py-2 collapse-inner rounded">
+               <h6 class="collapse-header">Custom Utilities:</h6>
+               <a class="collapse-item" href="utilities-color.html">Colors</a>
+               <a class="collapse-item" href="utilities-border.html">Borders</a>
+               <a class="collapse-item" href="utilities-animation.html">Animations</a>
+               <a class="collapse-item" href="utilities-other.html">Other</a>
+           </div>
+       </div>
+   </li>:null
+    }
+   
 
     <hr class="sidebar-divider" />
+    <Button color="danger" className="m-2" onClick={()=>navigate('/')}>Logout</Button>
 
 {/* 
     <div class="sidebar-heading">
@@ -377,7 +414,7 @@ const navigate = useNavigate()
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">{user&&user?.firstname} {user&&user?.lastname}</span>
                         <img
                       class="img-profile rounded-circle"
                       src={require("./download.png")}

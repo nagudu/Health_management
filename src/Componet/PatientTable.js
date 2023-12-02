@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { _fetchApi } from "./Api";
 import { Navigate, useNavigate } from "react-router";
+import { Button } from "reactstrap";
 
 export default function PatientTable() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export default function PatientTable() {
       }
     );
   }, []);
+  let users = localStorage.getItem("userdata")
+  const user = JSON.parse(users)
   return (
     <div>
       <div id="wrapper">
@@ -48,92 +51,50 @@ export default function PatientTable() {
 
           <div class="sidebar-heading">Interface</div>
 
-          <li class="nav-item">
-            <span
-              class="nav-link collapsed"
-              onClick={() => navigate("/patient-table")}
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-              aria-expanded="true"
-              aria-controls="collapseTwo"
-            >
-              <i class="fas fa-fw fa-user"></i>
-              <span>Patients</span>
-            </span>
-            <div
-              id="collapseTwo"
-              class="collapse"
-              aria-labelledby="headingTwo"
-              data-parent="#accordionSidebar"
-            >
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">
-                  Buttons
-                </a>
-                <a class="collapse-item" href="cards.html">
-                  Cards
-                </a>
-              </div>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <span
-              class="nav-link collapsed"
-              onClick={() => navigate("/apoint-table")}
-              data-toggle="collapse"
-              data-target="#collapseUtilities"
-              aria-expanded="true"
-              aria-controls="collapseUtilities"
-            >
-              <i class="fas fa-fw fa-cog"></i>
-              <span>Appointments</span>
-            </span>
-            <div
-              id="collapseUtilities"
-              class="collapse"
-              aria-labelledby="headingUtilities"
-              data-parent="#accordionSidebar"
-            >
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">
-                  Colors
-                </a>
-                <a class="collapse-item" href="utilities-border.html">
-                  Borders
-                </a>
-                <a class="collapse-item" href="utilities-animation.html">
-                  Animations
-                </a>
-                <a class="collapse-item" href="utilities-other.html">
-                  Other
-                </a>
-              </div>
-            </div>
-          </li>
-         
-          <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Doctor</span>
+          {
+    user&&user?.role==='admin'||'receptionist'?
+    <li class="nav-item">
+    <span class="nav-link collapsed" onClick={()=>navigate('/patient-table')} data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Patients</span>
         </span>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.html">Buttons</a>
+                <a class="collapse-item" href="cards.html">Cards</a>
             </div>
         </div>
     </li>
+:null
+}
 
-     
-    <li class="nav-item">
+    
+{
+  user&&user?.role==='admin'||'receptionist'?
+  <li class="nav-item">
+  <span class="nav-link collapsed" onClick={()=>navigate('/apoint-table')} data-toggle="collapse" data-target="#collapseUtilities"
+      aria-expanded="true" aria-controls="collapseUtilities">
+      <i class="fas fa-fw fa-cog"></i>
+      <span>Appointments</span>
+  </span>
+  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+      data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Custom Utilities:</h6>
+          <a class="collapse-item" href="utilities-color.html">Colors</a>
+          <a class="collapse-item" href="utilities-border.html">Borders</a>
+          <a class="collapse-item" href="utilities-animation.html">Animations</a>
+          <a class="collapse-item" href="utilities-other.html">Other</a>
+      </div>
+  </div>
+</li>:null
+}
+   
+    {
+        user&&user?.role==='doctor'?
+        <li class="nav-item">
         <span class="nav-link collapsed" onClick={()=>navigate('/priscription')} data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-users"></i>
@@ -149,9 +110,54 @@ export default function PatientTable() {
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
+    </li>:null
+    }
 
-          <hr class="sidebar-divider" />
+{
+    user&&user?.role==='admin'?
+
+    <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Doctor</span>
+        </span>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>:null
+    }
+    {
+       user&&user?.role==='admin'||'receptionist'?  
+       <li class="nav-item">
+       <span class="nav-link collapsed" onClick={()=>navigate('/card-table')} data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+           <i class="fas fa-fw fa-users"></i>
+           <span>Cards</span>
+       </span>
+       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+           data-parent="#accordionSidebar">
+           <div class="bg-white py-2 collapse-inner rounded">
+               <h6 class="collapse-header">Custom Utilities:</h6>
+               <a class="collapse-item" href="utilities-color.html">Colors</a>
+               <a class="collapse-item" href="utilities-border.html">Borders</a>
+               <a class="collapse-item" href="utilities-animation.html">Animations</a>
+               <a class="collapse-item" href="utilities-other.html">Other</a>
+           </div>
+       </div>
+   </li>:null
+    }
+   
+
+    <hr class="sidebar-divider" />
+    <Button color="danger" className="m-2" onClick={()=>navigate('/')}>Logout</Button>
 
           {/* 
     <div class="sidebar-heading">
@@ -445,10 +451,8 @@ export default function PatientTable() {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                      Douglas McGee
-                    </span>
-                    <img
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{user&&user?.firstname} {user&&user?.lastname}</span>
+                        <img
                       class="img-profile rounded-circle"
                       src={require("./download.png")}
                     />
