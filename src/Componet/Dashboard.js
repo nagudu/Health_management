@@ -4,6 +4,8 @@ import "./css/sb-admin-2.min.css"
 import { useNavigate } from 'react-router';
 export default function Dashboard() {
     const navigate = useNavigate()
+    let users = localStorage.getItem("userdata")
+    const user = JSON.parse(users)
   return (
     <div>
  <div id="wrapper">
@@ -15,7 +17,7 @@ export default function Dashboard() {
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Receptionist <sup></sup></div>
+        <div class="sidebar-brand-text mx-3">{user.role} <sup></sup></div>
     </a>
 
     <hr class="sidebar-divider my-0" />
@@ -68,6 +70,24 @@ export default function Dashboard() {
         </div>
     </li>
 
+
+    <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Doctor</span>
+        </span>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>
 
     <hr class="sidebar-divider" />
 
@@ -289,9 +309,11 @@ export default function Dashboard() {
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg" />
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{user.firstname} {user.lastname}</span>
+                        <img
+                      class="img-profile rounded-circle"
+                      src={require("./download.png")}
+                    />
                     </a>
                   
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -319,6 +341,7 @@ export default function Dashboard() {
             </ul>
 
         </nav>
+        {/* {JSON.stringify(user )} */}
         <div class="container-fluid">
 
             <div class="d-sm-flex align-items-center justify-content-between mb-4">

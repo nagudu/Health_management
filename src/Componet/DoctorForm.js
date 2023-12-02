@@ -466,7 +466,7 @@ export default function DoctorForm() {
                     </span>
                     <img
                       class="img-profile rounded-circle"
-                      src="img/undraw_profile.svg"
+                      src={require("./download.png")}
                     />
                   </a>
 
