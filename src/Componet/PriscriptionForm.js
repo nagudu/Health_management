@@ -3,32 +3,26 @@ import { _fetchApi, _postApi } from "./Api";
 import { Navigate, useNavigate } from "react-router";
 
 export default function PriscriptionForm() {
-  const [form,setForm]=useState({
-    firstname:'', 
-    lastname:'',
-    middlename:'',
-    gender:'',
-    state:'',
-    dob:'',
-    phone:'', 
-    username:'', 
-    role:'card',
-    password:'',
-    status:'pending'
-  })
+  const [form, setForm] = useState({
+    title: "",
+    priscription: "",
+  });
 
-  const handleChange = ({target:{name,value}})=>{
-    setForm((p)=>({...p,[name]:value}))
-  }
-  const handleSubmit = ()=>{
-    _postApi('/api/users/create',form,
-    (res)=>{
-        alert(res)
-    },(err)=>{
-        console.log(err)
-    }
-    )
-   }
+  const handleChange = ({ target: { name, value } }) => {
+    setForm((p) => ({ ...p, [name]: value }));
+  };
+  const handleSubmit = () => {
+    _postApi(
+      "/api/priscription",
+      form,
+      (res) => {
+        alert(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  };
 
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -225,7 +219,6 @@ export default function PriscriptionForm() {
                 <li class="nav-item dropdown no-arrow d-sm-none">
                   <a
                     class="nav-link dropdown-toggle"
-                    
                     id="searchDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -261,7 +254,6 @@ export default function PriscriptionForm() {
                 <li class="nav-item dropdown no-arrow mx-1">
                   <a
                     class="nav-link dropdown-toggle"
-                    
                     id="alertsDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -276,7 +268,7 @@ export default function PriscriptionForm() {
                     aria-labelledby="alertsDropdown"
                   >
                     <h6 class="dropdown-header">Alerts Center</h6>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="mr-3">
                         <div class="icon-circle bg-primary">
                           <i class="fas fa-file-alt text-white"></i>
@@ -289,7 +281,7 @@ export default function PriscriptionForm() {
                         </span>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="mr-3">
                         <div class="icon-circle bg-success">
                           <i class="fas fa-donate text-white"></i>
@@ -300,7 +292,7 @@ export default function PriscriptionForm() {
                         $290.29 has been deposited into your account!
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="mr-3">
                         <div class="icon-circle bg-warning">
                           <i class="fas fa-exclamation-triangle text-white"></i>
@@ -312,10 +304,7 @@ export default function PriscriptionForm() {
                         for your account.
                       </div>
                     </a>
-                    <a
-                      class="dropdown-item text-center small text-gray-500"
-                      
-                    >
+                    <a class="dropdown-item text-center small text-gray-500">
                       Show All Alerts
                     </a>
                   </div>
@@ -324,7 +313,6 @@ export default function PriscriptionForm() {
                 <li class="nav-item dropdown no-arrow mx-1">
                   <a
                     class="nav-link dropdown-toggle"
-                    
                     id="messagesDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -339,7 +327,7 @@ export default function PriscriptionForm() {
                     aria-labelledby="messagesDropdown"
                   >
                     <h6 class="dropdown-header">Message Center</h6>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -358,7 +346,7 @@ export default function PriscriptionForm() {
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -375,7 +363,7 @@ export default function PriscriptionForm() {
                         <div class="small text-gray-500">Jae Chun · 1d</div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -394,7 +382,7 @@ export default function PriscriptionForm() {
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" >
+                    <a class="dropdown-item d-flex align-items-center">
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -414,10 +402,7 @@ export default function PriscriptionForm() {
                         </div>
                       </div>
                     </a>
-                    <a
-                      class="dropdown-item text-center small text-gray-500"
-                      
-                    >
+                    <a class="dropdown-item text-center small text-gray-500">
                       Read More Messages
                     </a>
                   </div>
@@ -428,7 +413,6 @@ export default function PriscriptionForm() {
                 <li class="nav-item dropdown no-arrow">
                   <a
                     class="nav-link dropdown-toggle"
-                    
                     id="userDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -448,22 +432,21 @@ export default function PriscriptionForm() {
                     class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown"
                   >
-                    <a class="dropdown-item" >
+                    <a class="dropdown-item">
                       <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                       Profile
                     </a>
-                    <a class="dropdown-item" >
+                    <a class="dropdown-item">
                       <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                       Settings
                     </a>
-                    <a class="dropdown-item" >
+                    <a class="dropdown-item">
                       <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                       Activity Log
                     </a>
                     <div class="dropdown-divider"></div>
                     <a
                       class="dropdown-item"
-                      
                       data-toggle="modal"
                       data-target="#logoutModal"
                     >
@@ -477,10 +460,7 @@ export default function PriscriptionForm() {
             <div class="container-fluid">
               <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Priscription</h1>
-                <a
-                  
-                  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                >
+                <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                   <i class="fas fa-download fa-sm text-white-50"></i> Generate
                   Report
                 </a>
@@ -496,7 +476,6 @@ export default function PriscriptionForm() {
                       <div class="dropdown no-arrow">
                         <a
                           class="dropdown-toggle"
-                          
                           role="button"
                           id="dropdownMenuLink"
                           data-toggle="dropdown"
@@ -510,62 +489,55 @@ export default function PriscriptionForm() {
                           aria-labelledby="dropdownMenuLink"
                         >
                           <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" >
-                            Action
-                          </a>
-                          <a class="dropdown-item" >
-                            Another action
-                          </a>
+                          <a class="dropdown-item">Action</a>
+                          <a class="dropdown-item">Another action</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" >
-                            Something else here
-                          </a>
+                          <a class="dropdown-item">Something else here</a>
                         </div>
                       </div>
                     </div>
                     <div className="col-lg-12">
-              <div className="bg-light text-center rounded p-5">
-                {/* <h1 className="mb-4"> Priscription</h1> */}
-                <div>
-                  <div className="row g-3">
-                    <div className="col-12 col-sm-6">
-                      <input
-                        type="text"
-                        className="form-control bg-white border-0"
-                        placeholder="Title"
-                        name='title'
-                        value={form.title}
-                        onChange={handleChange}
-                        style={{ height: "55px" }}
-                      />
-                    </div>
-                    <div className="col-12 col-sm-6"></div>
-                    <div className="col-12 col-sm-6">
-                      <textarea
-                        type="text"
-                        className="form-control bg-white border-0"
-                        placeholder="Priscription"
-                        name='priscription'
-                        value={form.priscription}
-                        onChange={handleChange}
-                        style={{ height: "55px", height: "170px" }}
-                      />
-                    </div>
-                    <div className="col-12 col-sm-6"></div>
-                    
-                    <div className="col-6">
-                      <button
-                        className="btn btn-primary w-100 py-3"
-                     onClick={handleSubmit}
+                      <div className="bg-light text-center rounded p-5">
+                        {/* <h1 className="mb-4"> Priscription</h1> */}
+                        <div>
+                          <div className="row g-3">
+                            <div className="col-12 col-sm-6">
+                              <input
+                                type="text"
+                                className="form-control bg-white border-0"
+                                placeholder="Title"
+                                name="title"
+                                value={form.title}
+                                onChange={handleChange}
+                                style={{ height: "55px" }}
+                              />
+                            </div>
+                            <div className="col-12 col-sm-6"></div>
+                            <div className="col-12 col-sm-6">
+                              <textarea
+                                type="text"
+                                className="form-control bg-white border-0"
+                                placeholder="Priscription"
+                                name="priscription"
+                                value={form.priscription}
+                                onChange={handleChange}
+                                style={{ height: "55px", height: "170px" }}
+                              />
+                            </div>
+                            <div className="col-12 col-sm-6"></div>
 
-                      >
-                        Submit
-                      </button>
+                            <div className="col-6">
+                              <button
+                                className="btn btn-primary w-100 py-3"
+                                onClick={handleSubmit}
+                              >
+                                Submit
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
                   </div>
                 </div>
               </div>
