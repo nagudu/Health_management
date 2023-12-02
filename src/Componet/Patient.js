@@ -5,8 +5,8 @@ import { _postApi } from "./Api";
 export default function Patient() {
     const navigate = useNavigate ()
     const [form, setForm] = useState({
-        email: '',
-        passwod: '',
+        username: '',
+        password: '',
       });
     
       const handleChange = ({ target: { name, value } }) => {
@@ -141,6 +141,9 @@ export default function Patient() {
                           data-target="#username"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name="username"
+                          value={form.username}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -157,6 +160,9 @@ export default function Patient() {
                           data-target="#password"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name="password"
+                          value={form.password}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>

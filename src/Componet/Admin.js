@@ -158,6 +158,8 @@ export default function () {
                             data-target="#gmail"
                             data-toggle="datetimepicker"
                             style={{ height: "55px" }}
+                            name="email"
+                            value={form.passwod}
                           />
                         </div>
                       </div>

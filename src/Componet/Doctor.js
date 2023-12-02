@@ -225,8 +225,8 @@ export default function () {
                           data-target="#password"
                           data-toggle="datetimepicker"
                           style={{ height: '55px' }}
-                          name="password"
-                          value={form.password}
+                          name="passwod"
+                          value={form.passwod}
                           onChange={handleChange}
                         />
                       </div>

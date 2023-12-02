@@ -158,6 +158,7 @@ export default function Reception() {
                           style={{ height: "55px" }}
                           name="email"
                           value={form.email}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -176,6 +177,7 @@ export default function Reception() {
                           style={{ height: "55px" }}
                           name="password"
                           value={form.passwod}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
