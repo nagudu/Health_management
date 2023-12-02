@@ -23,7 +23,7 @@ export default function () {
         localStorage.setItem('userdata', JSON.stringify(res.role));
         setData(res);
         if(user.role==='doctor'){
-          navigate('/doctor-table')
+          navigate('/priscription')
         }else(
           navigate("/patient-table")
         )

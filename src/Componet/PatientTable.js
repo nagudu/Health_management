@@ -7,7 +7,7 @@ export default function PatientTable() {
   const [data, setData] = useState([]);
   useEffect(() => {
     _fetchApi(
-      "/get-users",
+      "/get-users?status=patient",
       (res) => {
         setData(res.resp[0]);
       },
@@ -113,11 +113,12 @@ export default function PatientTable() {
               </div>
             </div>
           </li>
+         
           <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/card   -table')} data-toggle="collapse" data-target="#collapseUtilities"
+        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-users"></i>
-            <span>Cards</span>
+            <span>Doctor</span>
         </span>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
@@ -130,11 +131,13 @@ export default function PatientTable() {
             </div>
         </div>
     </li>
-          <li class="nav-item">
-        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
+
+     
+    <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/priscription')} data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-users"></i>
-            <span>Doctor</span>
+            <span>Prescription</span>
         </span>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">

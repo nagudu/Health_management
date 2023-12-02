@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { _fetchApi, _postApi } from './Api';
 import { Navigate, useNavigate } from 'react-router';
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Button, Card, CardBody, CardFooter, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
 
 export default function PriscriptionTable() {
 const navigate = useNavigate()
     const [data,setData]=useState([])
 
     const getData = ()=>{
-        _fetchApi('/get-users?status=card',
+        _fetchApi('/get-users?status=patient',
         (res)=>{
             setData(res.resp[0])
         },(err)=>{
@@ -35,29 +35,12 @@ const navigate = useNavigate()
         )
     }
 
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
-    const modals = () => {
-      toggle();
-    };
-    const [val,setVal]=useState('')
+    let users = localStorage.getItem("userdata")
+    const user = JSON.parse(users)
+    
   return (
     <div>
-         <Modal isOpen={modal} toggle={toggle} size="md">
-        <ModalHeader toggle={toggle}>Patient Details</ModalHeader>
-        <ModalBody>
-          <b>Username:{val}</b><br />
-          <b>Password:123456</b><br />
-    
-
-        </ModalBody>
-        <ModalFooter>
-          <Button color="danger" onClick={toggle}>
-            close
-          </Button>
-          {""}
-        </ModalFooter>
-      </Modal>
+      
  <div id="wrapper">
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -67,7 +50,7 @@ const navigate = useNavigate()
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Receptionist <sup></sup></div>
+        <div class="sidebar-brand-text mx-3">{user?.role} <sup></sup></div>
     </a>
 
     <hr class="sidebar-divider my-0" />
@@ -375,9 +358,9 @@ const navigate = useNavigate()
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{user.firstname} {user.lastname}</span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg" />
+                            src={require('./download2.jpeg')} />
                     </a>
                   
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -439,50 +422,30 @@ const navigate = useNavigate()
                             </div>
                         </div>
                         <div class="card-body">
-                        <Button>Add New</Button>
-                        <form class="form-inline mr-auto col-md-12 mb-3 mt-3">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search"
-                                    aria-describedby="basic-addon2" />
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                            <table className='table table-stripped'>
-                             <tr>
-                                 <th>id</th>
-                                 <th>First name</th>
-                                 <th>Last Name</th>
-                               
-                                 <th>gender</th>
-                                 <th>date of birth</th>
-                                 <th>phone</th>
-                                 <th>email</th>
-                               
-                                 <th>status</th>
-                                 <th>Action</th>
-
-                             </tr>
-                             {
-                                 data&&data.map((item,i)=>(
-                                     <tr>
-                                         <td>{i+1}</td>
-                                         <td>{item.firstname}</td>
-                                         <td>{item.lastname}</td>
-                                         <td>{item.gender}</td>
-                                         <td>{item.dob}</td>
-                                         <td>{item.phone}</td>
-                                         <td>{item.email}</td>
-                                         <td>{item.status}</td>
-                                         <td>{item.status==='pending'?<button onClick={()=>handleUpdate(item.id)} className='btn btn-success text-dark' style={{color:'black'}}>Approve</button>:<button onClick={()=>{setVal(item.username);toggle()}}    className='btn btn-primary text-dark'>view</button>}</td>
-                                     </tr>  
-                                 ))
-                             }
-                            </table>
+                        <Row>
+                        {
+                            data&&data.map((item,index)=>(
+<Col md={4}>
+                            <Card>
+                                <CardBody className="d-flex">
+                                  <div>
+                                    <img src={require('./download2.jpeg')} className="rounded" />
+                                  </div>
+                                  <div className="mt-5">
+                                            <b>Name : {item.firstname} {item.lastname}</b><br />
+                                    <b>Geder :  {item.gender}</b><br />
+                                   <b>Age:   {item.dob}</b><br />
+                                   <b>phone  {item.phone}</b><br />
+                                  </div>
+                                </CardBody>
+                                <CardFooter><Button color="primary" onClick={()=>navigate(`/priscription-form?patient_id=${item.id}&id=${user.id}`)}>Prescibe a drug</Button></CardFooter>
+                            </Card>
+                        </Col>
+                            ))
+                        }
+                        
+                     </Row> 
+            
                             <div class="mt-4 text-center small">
                                 
                             </div>
