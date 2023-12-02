@@ -1,38 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { _fetchApi, _postApi } from "./Api";
 import { Navigate, useNavigate } from "react-router";
+import { Button, Col, Input, Row } from "reactstrap";
 
-export default function AppointmentTable() {
-  const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const getAppoint = () => {
-    _fetchApi(
-      "/get-appoint",
-      (res) => {
-        setData(res.resp[0]);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  };
-  useEffect(() => {
-    getAppoint();
-  }, []);
+export default function DoctorForm() {
+  const navigate = useNavigate()
+  const [form,setForm]=useState({
+    firstname:'', 
+    lastname:'',
+    middlename:'',
+    gender:'',
+    state:'',
+    dob:'',
+    phone:'', 
+    username:'', 
+    role:'doctor',
+    password:'',
+    status:'pending'
+  })
 
-  const updateAppoint = (id) => {
-    _postApi(
-      "/update-appointment",
-      { id: id },
-      (res) => {
-        alert("success");
-        getAppoint();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  };
+  const handleChange = ({target:{name,value}})=>{
+    setForm((p)=>({...p,[name]:value}))
+  }
+
+  const handleSubmit = ()=>{
+   _postApi('/api/users/create',form,
+   (res)=>{
+       alert('success')
+       navigate(-1)
+   },(err)=>{
+       console.log(err)
+   }
+   )
+  }
   return (
     <div>
       <div id="wrapper">
@@ -89,7 +89,7 @@ export default function AppointmentTable() {
                   Buttons
                 </a>
                 <a class="collapse-item" href="cards.html">
-                  Cards
+                 Doctors
                 </a>
               </div>
             </div>
@@ -136,6 +136,24 @@ export default function AppointmentTable() {
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-users"></i>
             <span>Cards</span>
+        </span>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <span class="nav-link collapsed" onClick={()=>navigate('/doctor-table')} data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Doctor</span>
         </span>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
@@ -484,7 +502,7 @@ export default function AppointmentTable() {
             </nav>
             <div class="container-fluid">
               <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Appointments</h1>
+                <h1 class="h3 mb-0 text-gray-800">Manage Doctors</h1>
                 <a
                   href="#"
                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
@@ -499,7 +517,7 @@ export default function AppointmentTable() {
                   <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">
-                        Appointments
+                        Doctors
                       </h6>
                       <div class="dropdown no-arrow">
                         <a
@@ -532,61 +550,35 @@ export default function AppointmentTable() {
                       </div>
                     </div>
                     <div class="card-body">
-                      <form class="form-inline mr-auto col-md-12 mb-3 ">
-                        <div class="input-group">
-                          <input
-                            type="text"
-                            class="form-control bg-light border-0 small"
-                            placeholder="Search for..."
-                            aria-label="Search"
-                            aria-describedby="basic-addon2"
-                          />
-                          <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                              <i class="fas fa-search fa-sm"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                      <table className="table table-stripped">
-                        <tr>
-                          <th>id</th>
-                          <th>name</th>
-                          <th>department</th>
-                          <th>segment</th>
-                          <th>date</th>
-                          <th>time</th>
-                          <th>status</th>
-                          <th>Action</th>
-                        </tr>
-                        {data &&
-                          data.map((item, i) => (
-                            <tr
-                              className={
-                                item.status === "approved"
-                                  ? "bg-success text-white"
-                                  : "bg-danger text-white"
-                              }
-                            >
-                              <td>{i + 1}</td>
-                              <td>{item.name}</td>
-                              <td>{item.department}</td>
-                              <td>{item.medical}</td>
-                              <td>{item.date}</td>
-                              <td>{item.time}</td>
-                              <td>{item.status}</td>
-                              <td>
-                                <button
-                                  className="btn btn-success text-dark"
-                                  style={{ color: "black" }}
-                                  onClick={() => updateAppoint(item.id)}
-                                >
-                                {item.status==='approved'?"View":"Aprrove"}   
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
-                      </table>
+                    <Row>
+                      <Col md={6}>
+                        <label>Doctor First Name</label>
+                        <Input name="firstname" value={form.firstname} onChange={handleChange}  />
+                      </Col>
+                      <Col md={6}>
+                        <label>Doctor Last Name</label>
+                        <Input name="lastname" value={form.lastname} onChange={handleChange}  />
+                      </Col>
+                      <Col md={6}>
+                        <label>Phone</label>
+                        <Input name="phone" value={form.phone} onChange={handleChange}   />
+                      </Col>
+
+                      <Col md={6}>
+                        <label>Email</label>
+                        <Input name="email" value={form.email} onChange={handleChange}  />
+                      </Col>
+
+                      <Col md={6}>
+                        <label>Gender</label>
+                        <Input name="gender" value={form.gender} onChange={handleChange}  />
+                      </Col>
+                      <Col md={6}>
+                        <label>Address</label>
+                        <Input name="address" value={form.address}   />
+                      </Col>
+                    </Row>
+                      <center><Button color="primary" className="mt-3" onClick={handleSubmit}>Submit</Button></center>
                       <div class="mt-4 text-center small"></div>
                     </div>
                   </div>
