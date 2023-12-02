@@ -13,6 +13,8 @@ import About from "../Componet/About";
 import Service from "../Componet/Service";
 import NewFile from "../Componet/NewFile";
 import Dashboard from "../Componet/Dashboard";
+import AppointmentTable from "../Componet/AppointmentTable";
+import PatientTable from "../Componet/PatientTable";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -68,6 +70,14 @@ function AppNavigation() {
             path:'/dashboard',
             element:<Dashboard />
         },
+        {
+            path:'/apoint-table',
+            element:<AppointmentTable />
+        },
+        {
+            path:'/patient-table',
+            element:<PatientTable />
+        }
     ])
 
     return element;

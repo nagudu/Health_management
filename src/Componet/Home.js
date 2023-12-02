@@ -1,6 +1,6 @@
 import React from "react";
 
-// import "https://fonts.gstatic.com"
+// import "https://fonts.gstatic.com"  
 // import "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
 // import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
 // import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
@@ -377,19 +377,19 @@ export default function Home() {
             </div>
             <div className="team-item">
               <div className="row g-0 bg-light rounded overflow-hidden">
-                <div className="col-12 col-sm-5 h-100">
+                <div className="col-6 col-sm-5 h-100">
                   <img
                     className="img-fluid h-100"
                     src={require("./img/team-2.jpg")}
                     style={{ objectFit: "cover" }}
                   />
                 </div>
-                <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                <div className="col-6 col-sm-7 h-100 d-flex flex-column">
                   <div className="mt-auto p-4">
                     <h3>kamal Isa</h3>
                     <h6 className="fw-normal fst-italic text-primary mb-4">
                       Cardiology Specialist
-                    </h6>`
+                    </h6>
                     <p className="m-0">
                       Dolor lorem eos dolor duo eirmod sea. Dolor sit magna
                       rebum clita rebum dolor
