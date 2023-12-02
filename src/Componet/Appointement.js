@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { _postApi } from "./Api";
 
 export default function Appointement() {
+  const [form,setForm]=useState({
+    department:'', 
+    medical:'',
+     name:'',
+      email:'',
+       date:'',
+        time:''
+  })
+
+  const handleChange = ({target:{name,value}})=>{
+    setForm((p)=>({...p, [name]:value}))
+  }
+
+  const handleSubmit =()=>{
+
+_postApi('/appointment',
+form,
+(res)=>{
+  alert(JSON.stringify(form))
+},(err)=>{
+  console.log(err)
+}
+)
+  }
     const navigate = useNavigate()
   return (
     <div>
@@ -115,12 +140,15 @@ export default function Appointement() {
             <div className="col-lg-6">
               <div className="bg-light text-center rounded p-5">
                 <h1 className="mb-4">Book An Appointment</h1>
-                <form>
+                <div>
                   <div className="row g-3">
                     <div className="col-12 col-sm-6">
                       <select
                         className="form-select bg-white border-0"
                         style={{ height: "55px" }}
+                        name='department'
+                        value={form.department}
+                        onChange={handleChange}
                       >
                         <option selected>Choose Department</option>
                         <option value="1">Department 1</option>
@@ -132,11 +160,14 @@ export default function Appointement() {
                       <select
                         className="form-select bg-white border-0"
                         style={{ height: "55px" }}
+                        name="medical"
+                        value={form.medical}
+                        onChange={handleChange}
                       >
                         <option selected>Medical</option>
-                        <option value="1">Medical</option>
-                        <option value="2">Dental</option>
-                        <option value="3">Skin DOC</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Dental">Dental</option>
+                        <option value="DOC">Skin DOC</option>
                       </select>
                     </div>
                     <div className="col-12 col-sm-6">
@@ -145,6 +176,9 @@ export default function Appointement() {
                         className="form-control bg-white border-0"
                         placeholder="Your Name"
                         style={{ height: "55px" }}
+                        name='name'
+                        value={form.name}
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="col-12 col-sm-6">
@@ -152,6 +186,9 @@ export default function Appointement() {
                         type="email"
                         className="form-control bg-white border-0"
                         placeholder="Your Email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
                         style={{ height: "55px" }}
                       />
                     </div>
@@ -168,6 +205,9 @@ export default function Appointement() {
                           data-target="#date"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name='date'
+                          value={form.date}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -184,19 +224,22 @@ export default function Appointement() {
                           data-target="#time"
                           data-toggle="datetimepicker"
                           style={{ height: "55px" }}
+                          name="time"
+                          value={form.time}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
                     <div className="col-12">
                       <button
                         className="btn btn-primary w-100 py-3"
-                        type="submit"
+                     onClick={handleSubmit}
                       >
                         Make An Appointment
                       </button>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
