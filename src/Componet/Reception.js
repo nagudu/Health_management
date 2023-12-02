@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { _postApi } from "./Api";
 
 export default function Reception() {
   const navigate = useNavigate()
+  const [form, setForm] = useState({
+    email: '',
+    passwod: '',
+  });
+
+  const handleChange = ({ target: { name, value } }) => {
+    setForm((p) => ({ ...p, [name]: value }));
+  };
+  const [data, setData] = useState('');
+  const handleSubmit = () => {
+    _postApi(
+      '/api/users/login',
+      form,
+      (res) => {
+        let user = res.role;
+
+        localStorage.setItem('userdata', JSON.stringify(res.role));
+        setData(res);
+        if(user.role==='doctor'){
+          navigate('/doctor-table')
+        }else(
+          navigate("/patient-table")
+        )
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
+  };
   return (
     <div>
       <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -149,6 +179,7 @@ export default function Reception() {
                       <button
                         className="btn btn-primary w-100 py-3"
                         type="submit"
+                        onClick={()=> handleSubmit}
                       >
                         login
                       </button>

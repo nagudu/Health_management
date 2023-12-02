@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { _postApi } from "./Api";
 
 export default function () {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [form, setForm] = useState({
+      email: '',
+      passwod: '',
+    });
+  
+    const handleChange = ({ target: { name, value } }) => {
+      setForm((p) => ({ ...p, [name]: value }));
+    };
+    const [data, setData] = useState('');
+    const handleSubmit = () => {
+      _postApi(
+        '/api/users/login',
+        form,
+        (res) => {
+          let user = res.role;
+  
+          localStorage.setItem('userdata', JSON.stringify(res.role));
+          setData(res);
+          if(user.role==='doctor'){
+            navigate('/doctor-table')
+          }else(
+            navigate("/patient-table")
+          )
+        },
+        (err) => {
+          console.log(err);
+        },
+      );
+    };
   return (
     <div>
       <>
@@ -151,6 +181,7 @@ export default function () {
                         <button
                           className="btn btn-primary w-100 py-3"
                           type="submit"
+                          onClick={handleSubmit}
                         >
                           login
                         </button>
