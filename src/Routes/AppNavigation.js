@@ -15,6 +15,8 @@ import NewFile from "../Componet/NewFile";
 import Dashboard from "../Componet/Dashboard";
 import AppointmentTable from "../Componet/AppointmentTable";
 import PatientTable from "../Componet/PatientTable";
+import Priscription from "../Componet/Priscription";
+import CardTable from "../Componet/CardTable";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -77,6 +79,14 @@ function AppNavigation() {
         {
             path:'/patient-table',
             element:<PatientTable />
+        },
+        {
+            path:'/priscription',
+            element:<Priscription />
+        },
+        {
+            path:'/card-table',
+            element:<CardTable />
         }
     ])
 

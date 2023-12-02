@@ -13,9 +13,9 @@ export default function Card() {
       dob:'',
       phone:'', 
       username:'', 
-      role:'',
+      role:'card',
       password:'',
-      status:'card'
+      status:'pending'
     })
 
     const handleChange = ({target:{name,value}})=>{

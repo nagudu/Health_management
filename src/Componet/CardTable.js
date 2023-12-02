@@ -3,12 +3,12 @@ import { _fetchApi, _postApi } from './Api';
 import { Navigate, useNavigate } from 'react-router';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-export default function PatientTable() {
+export default function CardTable() {
 const navigate = useNavigate()
     const [data,setData]=useState([])
 
     const getData = ()=>{
-        _fetchApi('/get-users?status=file',
+        _fetchApi('/get-users?status=card',
         (res)=>{
             setData(res.resp[0])
         },(err)=>{
@@ -101,8 +101,6 @@ const navigate = useNavigate()
         </div>
     </li>
 
-    
-
 
     <li class="nav-item">
         <span class="nav-link collapsed" onClick={()=>navigate('/apoint-table')} data-toggle="collapse" data-target="#collapseUtilities"
@@ -121,6 +119,7 @@ const navigate = useNavigate()
             </div>
         </div>
     </li>
+
     <li class="nav-item">
         <span class="nav-link collapsed" onClick={()=>navigate('/card-table')} data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
@@ -138,6 +137,7 @@ const navigate = useNavigate()
             </div>
         </div>
     </li>
+
 
     <hr class="sidebar-divider" />
 
@@ -392,7 +392,7 @@ const navigate = useNavigate()
         <div class="container-fluid">
 
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Patients</h1>
+                <h1 class="h3 mb-0 text-gray-800">Cards</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
@@ -405,7 +405,7 @@ const navigate = useNavigate()
                     <div class="card shadow mb-4">
                         <div
                             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Patients</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Cards</h6>
                             <div class="dropdown no-arrow">
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

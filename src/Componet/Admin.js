@@ -191,22 +191,22 @@ export default function () {
                   Quick Links
                 </h4>
                 <div className="d-flex flex-column justify-content-start">
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Home
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>About Us
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Our Services
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Meet The Team
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Latest Blog
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light" href="#">
+                  <span onClick={() => navigate("/")} className="text-light" >
                     <i className="fa fa-angle-right me-2"></i>Contact Us
                   </span>
                 </div>
@@ -216,22 +216,22 @@ export default function () {
                   Popular Links
                 </h4>
                 <div className="d-flex flex-column justify-content-start">
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Home
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>About Us
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Our Services
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Meet The Team
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light mb-2" href="#">
+                  <span onClick={() => navigate("/")} className="text-light mb-2" >
                     <i className="fa fa-angle-right me-2"></i>Latest Blog
                   </span>
-                  <span onClick={() => navigate("/")} className="text-light" href="#">
+                  <span onClick={() => navigate("/")} className="text-light" >
                     <i className="fa fa-angle-right me-2"></i>Contact Us
                   </span>
                 </div>
@@ -264,7 +264,7 @@ export default function () {
           </div>
         </div>
         <span onClick={() => navigate("/")}
-          href="#"
+          
           className="btn btn-lg btn-primary btn-lg-square back-to-top"
         >
           <i className="bi bi-arrow-up"></i>

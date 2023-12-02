@@ -12,7 +12,8 @@ export default function NewFile() {
     gender: "",
     dob: "",
     phone: "",
-    status:'file'
+    status:'pending',
+    role:'file'
   };
   const handleSubmit = ()=>{
     _postApi('/api/users/create',form,
@@ -202,6 +203,9 @@ export default function NewFile() {
                         placeholder="Your Email"
                         required
                         style={{ height: "55px" }}
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="col-12 col-sm-6">
