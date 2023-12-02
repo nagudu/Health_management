@@ -123,7 +123,7 @@ export default function PatientTable() {
 
           {/*    
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Pages</span>
@@ -198,7 +198,7 @@ export default function PatientTable() {
                 <li class="nav-item dropdown no-arrow d-sm-none">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="searchDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -234,7 +234,7 @@ export default function PatientTable() {
                 <li class="nav-item dropdown no-arrow mx-1">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="alertsDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -249,7 +249,7 @@ export default function PatientTable() {
                     aria-labelledby="alertsDropdown"
                   >
                     <h6 class="dropdown-header">Alerts Center</h6>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="mr-3">
                         <div class="icon-circle bg-primary">
                           <i class="fas fa-file-alt text-white"></i>
@@ -262,7 +262,7 @@ export default function PatientTable() {
                         </span>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="mr-3">
                         <div class="icon-circle bg-success">
                           <i class="fas fa-donate text-white"></i>
@@ -273,7 +273,7 @@ export default function PatientTable() {
                         $290.29 has been deposited into your account!
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="mr-3">
                         <div class="icon-circle bg-warning">
                           <i class="fas fa-exclamation-triangle text-white"></i>
@@ -287,7 +287,7 @@ export default function PatientTable() {
                     </a>
                     <a
                       class="dropdown-item text-center small text-gray-500"
-                      href="#"
+                      
                     >
                       Show All Alerts
                     </a>
@@ -297,7 +297,7 @@ export default function PatientTable() {
                 <li class="nav-item dropdown no-arrow mx-1">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="messagesDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -312,7 +312,7 @@ export default function PatientTable() {
                     aria-labelledby="messagesDropdown"
                   >
                     <h6 class="dropdown-header">Message Center</h6>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -331,7 +331,7 @@ export default function PatientTable() {
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -348,7 +348,7 @@ export default function PatientTable() {
                         <div class="small text-gray-500">Jae Chun · 1d</div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -367,7 +367,7 @@ export default function PatientTable() {
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" >
                       <div class="dropdown-list-image mr-3">
                         <img
                           class="rounded-circle"
@@ -389,7 +389,7 @@ export default function PatientTable() {
                     </a>
                     <a
                       class="dropdown-item text-center small text-gray-500"
-                      href="#"
+                      
                     >
                       Read More Messages
                     </a>
@@ -401,7 +401,7 @@ export default function PatientTable() {
                 <li class="nav-item dropdown no-arrow">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="#"
+                    
                     id="userDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -421,22 +421,22 @@ export default function PatientTable() {
                     class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown"
                   >
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" >
                       <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                       Profile
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" >
                       <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                       Settings
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" >
                       <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                       Activity Log
                     </a>
                     <div class="dropdown-divider"></div>
                     <a
                       class="dropdown-item"
-                      href="#"
+                      
                       data-toggle="modal"
                       data-target="#logoutModal"
                     >
@@ -451,7 +451,7 @@ export default function PatientTable() {
               <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Patients</h1>
                 <a
-                  href="#"
+                  
                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
                 >
                   <i class="fas fa-download fa-sm text-white-50"></i> Generate
@@ -469,7 +469,7 @@ export default function PatientTable() {
                       <div class="dropdown no-arrow">
                         <a
                           class="dropdown-toggle"
-                          href="#"
+                          
                           role="button"
                           id="dropdownMenuLink"
                           data-toggle="dropdown"
@@ -483,14 +483,14 @@ export default function PatientTable() {
                           aria-labelledby="dropdownMenuLink"
                         >
                           <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" >
                             Action
                           </a>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" >
                             Another action
                           </a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" >
                             Something else here
                           </a>
                         </div>
