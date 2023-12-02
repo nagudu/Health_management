@@ -12,7 +12,6 @@ import Contact from "../Componet/Contact";
 import About from "../Componet/About";
 import Service from "../Componet/Service";
 import NewFile from "../Componet/NewFile";
-import Dashboard from "../Componet/Dashboard";
 
 function AppNavigation() {
     let element = useRoutes([
@@ -63,10 +62,6 @@ function AppNavigation() {
         {
             path:'/file',
             element:<NewFile />
-        },
-        {
-            path:'/dashboard',
-            element:<Dashboard />
         },
     ])
 
